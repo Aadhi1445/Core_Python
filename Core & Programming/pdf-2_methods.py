@@ -204,8 +204,232 @@ Demonstrate:
 2.	Enrolling students.
 3.	Updating minimum duration and checking durations
 """
-class Course:
-    total_courses=0
+# class Course:
+#     total_courses=0
+#     min_duration=20
+#     def __init__(self,title,dur,e_stu):
+#         self.title=title
+#         self.duration=dur
+#         self.e_students=e_stu
+#         Course.total_courses+=1
+#     def enroll(self,n):
+#         self.e_students+=n
+#         return self.e_students
+#     @classmethod
+#     def update(cls,x):
+#         cls.min_duration=x
+#     @staticmethod
+#     def valid_dur(dur):
+#         if dur>0 and dur >= Course.min_duration:
+#             return dur
+# # print(Course.valid_dur(15))
+# c1=Course("Python",30,55)
+# c2=Course("Java",25,50)
+# c1.enroll(5)
+# print(c1.e_students)
+
+"""Q6. Design a class Vehicle that:
+•	Keeps a record of service charge rate common to all vehicles.
+•	Each vehicle has a model, kilometers_run, and service history.
+•	Has a function to calculate service charge based on km and rate.
+•	Provides a method to update the service rate for all vehicles.
+•	Provides a static tool to check if a vehicle model is eligible for service (not older than 15 years).
+Demonstrate:
+1.	Creating vehicles with different km and models.
+2.	Updating the service rate.
+3.	Showing charges and eligibility checks."""
+# class Vehicle:
+#     s_charge=100
+#     def __init__(self, model, km_r, history=0):
+
+#         self.model=model
+#         self.km_r=km_r
+#         self.history=history
+#     @staticmethod
+#     def cal(x):
+#         print(Vehicle.s_charge*x+Vehicle.s_charge)
+#     @classmethod
+#     def update(cls,z):
+#         cls.s_charge=z
+#         return cls.s_charge
+#     @staticmethod
+#     def eligible(a):
+#         if a<=15:
+#             print("Eligible")
+#         else:
+#             print("Not Eligible")
+#         return a
+# v1=Vehicle("hero",5000,2)
+# v2=Vehicle("glamour",2500)
+# Vehicle.eligible(5)
+# Vehicle.cal(200)
+# Vehicle.update(200)
+# Vehicle.cal(200)
+
+"""Q7. Build an Inventory class that:
+•	Tracks the total number of items across all inventories.
+•	Each instance maintains its own stock dictionary ({"item": quantity}).
+•	Provides a method to add or remove stock.
+•	Allows updating a minimum stock threshold globally.
+•	Offers a static checker to verify if a stock level is below threshold.
+Demonstrate:
+1.	Managing multiple inventories.
+2.	Adjusting stock threshold.
+3.	Using static validation inside the instance logic."""
+# class Inventory:
+#     total_items=0;thresshold=20
+#     def __init__(self):
+#         self.stores={}
+#     def add(self,item,qty):
+#         if self.valid(qty):
+#             self.stores[item]=qty
+#             Inventory.total_items+=1
+#             print("Item Added Succefully")
+#         else:
+#             print("Quantity should Reach Min thresshold")
+#     @staticmethod
+#     def valid(qty):
+#         return qty>Inventory.thresshold
+#     def remove(self,item):
+#         if item in self.stores.keys():
+#             self.stores.pop(item)
+#             Inventory.total_items-=1
+#             print("item succesfully removed from inventory")
+#         else:
+#             print("item not found")
+# v1=Inventory()
+# v1.add("pen",56)
+
+"""Q8. Create a HotelRoom class that:
+•	Keeps a base price per night (shared).
+•	Each room has room_number, nights_booked, and guest_name.
+•	Has a method to calculate total bill.
+•	Allows updating the base price across all rooms.
+•	Provides a static utility to check if a number of nights is valid (e.g., positive integer only).
+Demonstrate:
+1.	Creating rooms and bookings.
+2.	Changing base price.
+3.	Checking bill updates and validation"""
+# class Hotel:
+#     b_price=250
+#     def __init__(self,r_num,nyt_booked,g_name):
+#         self.r_num=r_num
+#         self.nyt_booked=nyt_booked
+#         self.g_name=g_name
+#     @classmethod
+#     def update(cls,x):
+#         Hotel.b_price=x
+#         return Hotel.b_price
+#     @staticmethod
+#     def check(y):
+#         if y>0:
+#             print("Valid")
+#         else:
+#             print("Invalid")
+#         return y
+#     def cal(self):
+#         return self.nyt_booked*Hotel.b_price
+# g1=Hotel(5,4,"Aadhya")
+# print(Hotel.cal(g1))
+# print(g1.cal())
+
+"""Q9. Design a LibraryMember class that:
+•	Tracks total active members.
+•	Each member has a name and books_borrowed count.
+•	Has a function to borrow books, with borrowing limit common to all.
+•	Allows updating borrowing limit globally.
+•	Has a static function to check if book title is valid (non-empty string, reasonable length).
+Demonstrate:
+1.	Borrowing books for multiple users.
+2.	Changing borrowing limits.
+3.	Validating book titles before borrowing."""
+ # class LibraryMem:
+ #     total_a_mem=0
+ #     b_limit=10
+ #     def __init__(self,name,books_borrowed_count):
+ #         self.name=name
+ #         self.books_borrowed_count=books_borrowed_count
+ #         LibraryMem.total_a_mem+=1
+ #     @staticmethod
+ #     def check(title):
+ #         return len(title)<30
+ #     @classmethod
+ #     def update(cls,n):
+ #         LibraryMem.b_limit=n
+ #     def borrow(self):
+ #         if
+
+'''Q10. Create a class Member that:
+•	Has a shared BMI limit for “fit” status.
+•	Each member stores name, height, weight.
+•	Has a method to calculate BMI and check fit status.
+•	Provides a function to update BMI limit for all members.
+•	Offers a tool to check if height and weight entered are valid numbers.
+Demonstrate:
+1.	Creating multiple members.
+2.	Updating BMI standard.
+3.	Displaying fit status and input validity.'''
+# class Member:
+#     bmi_limit= 25
+#     def __init__(self,name,height,weight):
+#         self.name=name
+#         self.height=round(height,1)
+#         print(self.height)
+#         self.weight=weight
+#     def cal_bmi(self):
+#         k=self.weight//(self.height**2)
+#         # k=round(k,1)
+#         if 18 < k < 25:
+#             print(k,"fit")
+#         else:
+#             print(k,"Unfit")
+#         return k
+#     @staticmethod
+#     def check_bmi(a):
+#         if a>=25:
+#             print("Unfit")
+#         elif 18<=a<=25:
+#             print("fit")
+#         else:
+#             print("Unfit")
+#         return a
+#     @staticmethod
+#     def valid(height,weight):
+#         if height>0 and weight>0:
+#             print("valid height & weight")
+#         elif height<=0:
+#             print("Invalid Height")
+#         elif weight <=0:
+#             print("Invalid Weight")
+#         else:
+#             print("Invalid Height & weight")
+#         return height,weight
+# # u1=Member(input("Enter name"),int(input("enter Height")),int(input("enter weight")))
+# u1=Member("aadhya",2.657,50)
+# u1.cal_bmi()
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
