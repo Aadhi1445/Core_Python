@@ -66,6 +66,74 @@ def fun(l):
 d=fun([2,1,4,7,1,9])
 for i in d:
     print(i)
+print('-'*50)
+'''5.	Write a generator that yields numbers from 1 to N.'''
+def fun(k):
+    i=0
+    while i<k:
+        i+=1
+        yield i
 
-
-
+a=fun(10)
+for i in a:
+    print(i)
+print('-'*50)
+'''6.	Write a generator that yields even numbers from 1 to N'''
+def even(k):
+    i=2
+    while i<=k:
+        if i%2==0:
+            yield i
+        i+=1
+a=even(10)
+for i in a:
+    print(i)
+print('-'*50)
+def even(k):
+    i=2
+    while i<=k:
+        if i%2==0:
+            print(i)
+        i+=1
+a=even(10)
+print('-'*50)
+'''7.	Write a generator that yields each character of a string.'''
+def string(s):
+    i=0
+    while i<len(s):
+        yield s[i]
+        i+=1
+s1=string('asdfghjklqsdcv')
+for i in s1:
+    print(i)
+print('-'*50)
+'''4.	Write a generator that yields characters of a string in reverse order.'''
+def reverse(s):
+    i=-1
+    while i>=(-len(s)):
+        yield s[i]
+        i=i-1
+r1=reverse('asdfghjkl')
+for i in r1:
+    print(i)
+print('-'*50)
+'''6.	Write a generator that yields only digits present in a string.'''
+def digits(k):
+    i=0
+    while i<len(k):
+        if k[i] in '1234567890':
+            yield k[i]
+        i+=1
+a=digits('as345hgfd34')
+for i in a:
+    print(i)
+print('-'*50)
+'''7.	Write a generator that yields the square of each element in a list.'''
+def square(l):
+    i=0
+    while i<len(l):
+        yield l[i]*l[i]
+        i+=1
+s1=square([1,2,3,4,5,6,7,8,9])
+for i in s1:
+    print(i)

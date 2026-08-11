@@ -233,47 +233,47 @@
 # s1=Sen('My Frnd "Parul" name @Belongs to 408')
 # for j in s1:
 #     print(j,end=" ")
-#'''char to ord'''
-# class Sen:
-#     def __init__(self,l):
-#         self.s=l
-#         self.i=0
-#     def __iter__(self):
-#         return self
-#     def __next__(self):
-#         self.i+=1
-#         if self.i>len(self.s):
-#             raise StopIteration
-#         k=ord(self.s[self.i-1])
-#         return k
-# s1=Sen('abcdefg')
-# sum=0
-# for i in s1:
-#     sum+=i
-#     print(i)
-# print(sum)
-    # print(i,end=" ")
-# print()
-# '''Cumulative Sum'''
-# class Sen1:
-#     def __init__(self,l):
-#         self.s=l
-#         self.i=0
-#         self.sum=0
-#     def __iter__(self):
-#         return self
-#     def __next__(self):
-#         self.i+=1
-#         if self.i>len(self.s):
-#             raise StopIteration
-#         self.sum+=ord(self.s[self.i-1])
-#         return self.sum
-# d=Sen1('abcdef')
-# # 97 98 99 100 101 102 103
-# for i in d:
-#     print(i)
+'''char to ord'''
+class Sen:
+    def __init__(self,l):
+        self.s=l
+        self.i=0
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.i+=1
+        if self.i>len(self.s):
+            raise StopIteration
+        k=ord(self.s[self.i-1])
+        return k
+s1=Sen('abcdefg')
+sum=0
+for i in s1:
+    sum+=i
+    print(i)
+print(sum)
+print(i,end=" ")
+print()
+'''Cumulative Sum'''
+class Sen1:
+    def __init__(self,l):
+        self.s=l
+        self.i=0
+        self.sum=0
+    def __iter__(self):
+        return self
+    def __next__(self):
+        self.i+=1
+        if self.i>len(self.s):
+            raise StopIteration
+        self.sum+=ord(self.s[self.i-1])
+        return self.sum
+d=Sen1('abcdef')
+# 97 98 99 100 101 102 103
+for i in d:
+    print(i)
 print('-'*50)
-# '''1. Write a custom iterator that prints numbers from 1 to N.'''
+'''1. Write a custom iterator that prints numbers from 1 to N.'''
 class A:
     def __init__(self,n):
         self.n=n
@@ -286,11 +286,11 @@ class A:
             return self.k
         else:
             raise StopIteration
-a1=A(int(input()))
+a1=A(10)
 for i in a1:
     print(i)
 print('-'*50)
-# '''2. Create an iterator that returns only even numbers from a given list.'''
+'''2. Create an iterator that returns only even numbers from a given list.'''
 class Even:
     def __init__(self,l):
         self.l=l
@@ -310,7 +310,7 @@ l1=Even([1,2,3,4,5,6,7,8,9,10])
 for i in l1:
     print(i)
 print('-'*50)
-# # '''3. Implement an iterator that iterates over a string character by character in reverse order. '''
+'''3. Implement an iterator that iterates over a string character by character in reverse order. '''
 class String:
     def __init__(self,l):
         self.l=l
@@ -328,7 +328,7 @@ s1=String('Pushpa Ante Flower🌺 anukuntiva , Firuuu!🔥')
 for i in s1:
     print(i)
 print('-'*50)
-# '''4. Write an iterator that yields elements of a list with their index (don’t use enumerate).'''
+'''4. Write an iterator that yields elements of a list with their index (don’t use enumerate).'''
 class Enum:
     def __init__(self,l):
         self.i=0
@@ -346,7 +346,7 @@ l=Enum(['a','b','c','d','e'])
 for i,j in l:
     print(i,j)
 print('-'*50)
-# '''5. Create an iterator that yields words from a sentence one by one.'''
+'''5. Create an iterator that yields words from a sentence one by one.'''
 class Sen:
     def __init__(self,s):
         self.s=list(s.split())
@@ -366,7 +366,7 @@ for i in s1:
     # if len(i)>5:
         # print(i)
 print('-'*50)
-# '''6. Write an iterator that returns characters at even indices of a string.'''
+'''6. Write an iterator that returns characters at even indices of a string.'''
 class Even:
     def __init__(self,s):
         self.s=s
@@ -383,4 +383,3 @@ class Even:
 e1=Even('asdfghjkl')
 for i in e1:
     print(i)
-
