@@ -17,4 +17,17 @@
 #
 # say_hello = my_decorator(say_hello)  # manual decoration
 # say_hello()  # manual decoration
-
+l=[0,1,2,3,4,5,6,7,8]
+print(l[-5:1:-1])
+print(l[-5:7:-1])
+print(l[-5:6:-1])
+print(l[-5:5:-1])
+print(l[-5:4:-1])
+print(l[-5:4:1])
+print("--")
+print(l[-5:5:1])
+print(l[-5:6:1])
+print(l[-5:7:1])
+print('--')
+print(l[5:-7:1])
+print(l[5:-7:-1])
