@@ -97,35 +97,55 @@
 #         self.Father_property()
 # c1=Child()
 # c1.Child_property()
+print('-'*50)
+'''5. Hybrid Inheritance
 
-class Person:
-    def __init__(self,n):
-        self.name=n
-    def person(self):
-        print("Person class")
-class Employee(Person):
-    def __init__(self,s,n):
-        self.salary=s
-        super().__init__(n)
-    def employee(self):
-        print("Employee is inherited from Person class")
-class Student(Person):
-    def __init__(self,c,n):
-        self.college=c
-        super().__init__(n)
-    def student(self):
-        print('student is inherited from Person class')
-class Intern(Employee,Student):
-    def __init__(self,d,s,c,n):
-        self.duration=d
-        Employee.__init__(self,s,n)
-        Student.__init__(self,c,n)
-    def Intern(self):
-        print(f'Name:{self.name}\nCollege:{self.college}\nSalary:{self.salary}\nDuration:{self.duration}')
-    def display(self):
-        self.Intern()
-        self.employee()
-        self.person()
-        self.Intern()
-i1=Intern(50,15000,'VSM College of Engineering','Aadhya ')
-i1.display()
+Combination of two or more types of inheritance.
+
+For example:
+
+             Person
+            /      \
+       Employee   Student
+            \      /
+             Intern
+
+Here you have:
+
+Hierarchical inheritance: Person → Employee and Person → Student
+Multiple inheritance: Employee + Student → Intern
+
+Together, this forms hybrid inheritance.
+
+This is similar to the example you were practicing earlier.'''
+# class Person:
+#     def __init__(self,n):
+#         self.name=n
+#     def person(self):
+#         print("Person class")
+# class Employee(Person):
+#     def __init__(self,s,n):
+#         super().__init__(n)
+#         self.salary = s
+#     def employee(self):
+#         print("Employee is inherited from Person class")
+# class Student(Person):
+#     def __init__(self,c,n):
+#         super().__init__(n)
+#         self.college = c
+#     def student(self):
+#         print('student is inherited from Person class')
+# class Intern(Employee,Student):
+#     def __init__(self,d,s,c,n):
+#         self.duration=d
+#         super().__init__(s,n)
+#         super().__init__(c,n)
+#     def Intern(self):
+#         print(f'Name:{self.name}\nCollege:{self.college}\nSalary:{self.salary}\nDuration:{self.duration}')
+#     def display(self):
+#         self.Intern()
+#         self.employee()
+#         self.person()
+#         self.Intern()
+e1=Employee(15000,'VSM College of Engineering','Aadhya ')
+# i1.display()

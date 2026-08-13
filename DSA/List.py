@@ -424,5 +424,3 @@
 # for i in range(len(l)):
 #     print(l)
 #     l=l[k:len(l)]+l[0:k]
-#
-#
