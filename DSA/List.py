@@ -262,14 +262,21 @@
 #     s+=1
 # print('-'*50)
 # ''' 21. Write a program to perform linear search on a list.'''
-# l=list(map(int,input().split()))
-# n=int(input())
+# # l=list(map(int,input().split()))
+# # n=int(input())
+# l=[1,2,3,9,4,7]
+# n=3
+# b=False
 # for i in l:
 #     if i==n:
-#         print(l.index(n))
+#         b=True
 #         break
+# if b:
+#     print("Found")
+# else:
+#     print('Not Found')
 # print('-'*50)
-# '''22. Write a program to perform binary search on a sorted list.'''
+'''22. Write a program to perform binary search on a sorted list.'''
 # l=[10,20,30,40,50,60]
 # n=40
 # l.sort()
@@ -424,3 +431,5 @@
 # for i in range(len(l)):
 #     print(l)
 #     l=l[k:len(l)]+l[0:k]
+
+
