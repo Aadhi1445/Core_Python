@@ -147,5 +147,6 @@ This is similar to the example you were practicing earlier.'''
 #         self.employee()
 #         self.person()
 #         self.Intern()
-e1=Employee(15000,'VSM College of Engineering','Aadhya ')
+# e1=Employee(15000,'VSM College of Engineering','Aadhya ')
 # i1.display()
+
