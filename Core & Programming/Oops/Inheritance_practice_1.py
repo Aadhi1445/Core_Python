@@ -61,31 +61,45 @@
 Create class Manager(Employee) that overrides salary() and adds an incentive.
  Demonstrate both outputs.'''
 # class Employee:
+#     def __init__(self,sal):
+#         self.sal=sal
 #     def salary(self):
-#         print("Instance salary method")
+#         print(self.sal)
 # class Manager(Employee):
-#     def salary(self):
-#         print('Adds an incentive to employees salary')
-# e=Employee()
-# e.salary()
-# m=Manager()
-# m.salary()
+#     def salary(self,incentive):
+#         self.sal+=incentive
+#         print("Manager salary:",self.sal)
+# e1=Employee(5000)
+# e1.salary()
+# m1=Manager(6000)
+# m1.salary(4000)
+#
+# # class Employee:
+# #     def salary(self):
+# #         print("Instance salary method")
+# # class Manager(Employee):
+# #     def salary(self):
+# #         print('Adds an incentive to employees salary')
+# # e=Employee()
+# # e.salary()
+# # m=Manager()
+# # m.salary()
 '''• Create class University with a class variable and a class method.
  Inherit it into class College and access the parent’s class variable from the child class. '''
-class University:
-    name='JNTUK'
-    @classmethod
-    def university(cls):
-        print(f'Name:{cls.name}')
-class College(University):
-    def college(self):
-        print(f'College Name:{self.name}')
-        print(f'College Name:{University.name}')
-        print(f'College Name:{College.name}')
-        print(f'College Name:{College.name}')
-c1=College()
-print(c1.name)
-c1.college()
+# class University:
+#     name='JNTUK'
+#     @classmethod
+#     def university(cls):
+#         print(f'Name:{cls.name}')
+# class College(University):
+#     def college(self):
+#         print(f'College Name:{self.name}')
+#         print(f'College Name:{University.name}')
+#         print(f'College Name:{College.name}')
+#         print(f'College Name:{College.name}')
+# c1=College()
+# print(c1.name)
+# c1.college()
 
 '''• Create class MathOps with a static method add(a, b).
  Create class AdvancedOps(MathOps) and use the static method without overriding it.'''
@@ -115,7 +129,6 @@ c1.college()
 #     pass
 # c=Child()
 # c.skills()
-
 ''' • Create an abstract class Shape with an abstract method area().
  Create class Rectangle(Shape) that implements the area() method.'''
 # class :

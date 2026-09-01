@@ -102,6 +102,3 @@ print(k)
 # # print(l['f_name'])
 # print(l.get('f_name','Not exist'))
 # print(l.get('f_name'))
-
-
-

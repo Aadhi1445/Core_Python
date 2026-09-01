@@ -149,4 +149,30 @@ This is similar to the example you were practicing earlier.'''
 #         self.Intern()
 # e1=Employee(15000,'VSM College of Engineering','Aadhya ')
 # i1.display()
-
+'''Hybrid Inheritance Using Super Constructor'''
+class A:
+    def __init__(self,x):
+        self.x=x
+        print('x Initialized')
+class B(A):
+    def __init__(self,y,z,x):
+        super().__init__(z,x)
+        self.y=y
+        print('y Initialized ')
+class C(A):
+    def __init__(self,z,x):
+        super().__init__(x)
+        self.z=z
+        print('Z Initialized')
+class D(B,C):
+    def __init__(self,a,y,z,x):
+        super().__init__(y,z,x)
+        self.a=a
+        print('a Initialized')
+    def display(self):
+        print(f'a:{self.a}\n'
+              f'x:{self.x}\n'
+              f'y:{self.y}\n'
+              f'z:{self.z}')
+d1=D(2,3,4,5)
+d1.display()

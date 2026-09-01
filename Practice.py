@@ -1,0 +1,181 @@
+# # '''Single Inheritance'''
+# # # class A:
+# # #     def show(self):
+# # #         print("A class")
+# # # class B(A):
+# # #     def Display(self):
+# # #         print("B class")
+# # # b1=B()
+# # # b1.Display()
+# # # b1.show()
+# # # a1=A()
+# # # a1.show()
+# # # a1.Display()
+# # # method resolution order MRO
+# # '''Multiple Inheritance'''
+# # # class A:
+# # #     def show(self):
+# # #         print("A class")
+# # # class B:
+# # #     def Display(self):
+# # #         print("B class")
+# # # class C(A,B):
+# # #     def display(self):
+# # #         print("C class")
+# # # # c1=C()
+# # # # c1.show()
+# # # # c1.Display()
+# # # # c1.display()
+# # # # a1=A()
+# # # # a1.show()
+# # # # a1.Display()
+# # # # a1.display()
+# # # b1=B()
+# # # b1.show()
+# # # # b1.Display()
+# # # # b1.display()
+# # '''Multilevel Inheritance'''
+# # # class A:
+# # #     def show(self):
+# # #         print("A class")
+# # # class B(A):
+# # #     def Display(self):
+# # #         print("B class")
+# # # class C(B):
+# # #     def display(self):
+# # #         print("C class")
+# # # c1=C()
+# # # c1.show()
+# # # b1=B()
+# # # b1.show()
+# # # a1=A()
+# # # a1.display()
+# # '''hierarchy Inheritance'''
+# # # class A:
+# # #     def show(self):
+# # #         print("A class")
+# # # class B(A):
+# # #     def Display(self):
+# # #         print("B class")
+# # # class C(A):
+# # #     def display(self):
+# # #         print("C class")
+# # '''Method Calling'''
+# # class A:
+# #     def show(self):
+# #         print("A class")
+# # class B(A):
+# #     def Display(self):
+# #         print("B class")
+# # class C(A):
+# #     def display(self):
+# #         print("C class")
+# #
+# class Instagram:
+#     usernames = {}
+#     def __init__(self,name,username,age,gender,psd):
+#         self.name = name
+#         self.username = username
+#         self.age = age
+#         self.gender = gender
+#         self.password = psd
+#         self.followers = 0
+#         self.following = 0
+#         self.friends_list = []
+#         self.logged = False
+#         Instagram.usernames[username] = self
+#
+#     @classmethod
+#     def signup(cls):
+#         name = input("Enter your Name: ")
+#         while True:
+#             username = input("Enter your username: ")
+#             if username in Instagram.usernames.keys():
+#                 print("Username already registered try another one")
+#                 continue
+#             break
+#         psd = input("Enter Your Password: ")
+#         age = input("Enter your age: ")
+#         gender = input("Enter your gender(Male/Female): ")
+#         return cls(name,username,age,gender,psd)
+#
+#     def login(self):
+#         if self.logged:
+#             print("Already logged in")
+#         else:
+#             user = input("Enter your username:")
+#             password = input("Enter your password:")
+#             if user == self.username and password == self.password:
+#                 self.logged = True
+#                 print("Logged in Successfully")
+#             else:
+#                 print("Invalid Credentials")
+#
+#     def logout(self):
+#         if self.logged:
+#             self.logged = False
+#             print("Logged out successfully")
+#         else:
+#             print("Already logged out")
+#
+#     def follow(self,user):
+#         if self.logged:
+#             if user not in self.friends_list:
+#                 self.following+=1
+#                 user.followers+=1
+#                 self.friends_list.append(user)
+#             else:
+#                 print("User is already following")
+#         else:
+#             print("Not logged in")
+#
+#     def unfollow(self,user):
+#         if self.logged:
+#             if user in self.friends_list:
+#                 self.following-=1
+#                 user.followers-=1
+#                 self.friends_list.remove(user)
+#             else:
+#                 print("User not Found")
+#         else:
+#             print("Not logged in")
+#
+#     def profile(self):
+#         print(f"{self.name}'s Profile")
+#         print(f"Name : {self.name}")
+#         print(f"Age : {self.age}")
+#         print(f"Gender : {self.gender}")
+#         print(f'Following : {self.following}')
+#         print(f'Followers : {self.followers}')
+#
+#     def friends_profile(self):
+#         if self.logged:
+#             for i,j in enumerate(self.friends_list):
+#                 print(f"{i} : {j.name}")
+#
+#             l = int(input("Enter your choice: "))
+#             self.friends_list[l].profile()
+#         else:
+#             print("Not logged in")
+#
+#
+# # i1 = Instagram("Cherry","Charan",23,"Male","Hello123")
+# i1 = Instagram.signup()
+# # i2 = Instagram("MK","Murali",23,"Male","Hello243")
+# i2 = Instagram.signup()
+# i3 = Instagram.signup()
+# i4 = Instagram.signup()
+# Instagram.login(i1)
+# i2.login()
+# i1.follow(i2)
+# i1.follow(i3)
+# i1.follow(i4)
+# i1.profile()
+# i1.friends_profile()
+# i2.unfollow(i1)
+# i3.follow(i2)
+# i3.friends_profile()
+
+
+
+
