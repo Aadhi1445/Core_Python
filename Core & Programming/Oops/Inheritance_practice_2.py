@@ -1,57 +1,57 @@
-'''1. Bank Management System
-Create a Bank class with:
- • balance variable
- • deposit()
- • withdraw()
- • check_balance()
- Create a User class that inherits Bank and displays the user's name.
- Perform deposit, withdrawal, and balance check. '''
-class Bank:
-    def __init__(self,n,b):
-        self.balance=b
-        self.name=n
-    def deposit(self,amount):
-        if amount>0:
-            self.balance+=amount
-            print(f'{amount} successfully deposited\n'
-                  f'existing balance:{self.balance}')
-            return self.balance
-        else:
-            print("Invalid deposit amount")
-    def withdraw(self,amount):
-        if amount<=self.balance and amount>0:
-            self.balance-=amount
-            print(f'{amount} successfully withdrawn\n'
-                  f'existing balance:{self.balance}')
-            return self.balance
-        else:
-            print("Invalid withdrawn amount")
-    def check_balance(self):
-        print(f'{self.balance} is existing balance')
-        return self.balance
-    def display(self):
-        print(f'Name: {self.name}'
-              f'Balance: {self.balance}')
-class User(Bank):
-    def __init__(self,n,b=0):
-        super().__init__(n,b)
-    def display(self):
-        print(f"User's name: {self.name}")
-u1=User('Aadhya')
-u1.display()
-u1.check_balance()
-u1.deposit(5000)
-u1.deposit(0)
-u1.withdraw(250)
-u1.withdraw(0)
-print('-'*50)
-'''2. Employee Salary System 
-Create an Employee class with: 
-• emp_name  
-• salary 
-• display_details() 
-Create a Manager class that inherits Employee and adds a bonus().
- Display the total salary.'''
+# '''1. Bank Management System
+# Create a Bank class with:
+#  • balance variable
+#  • deposit()
+#  • withdraw()
+#  • check_balance()
+#  Create a User class that inherits Bank and displays the user's name.
+#  Perform deposit, withdrawal, and balance check. '''
+# class Bank:
+#     def __init__(self,n,b):
+#         self.balance=b
+#         self.name=n
+#     def deposit(self,amount):
+#         if amount>0:
+#             self.balance+=amount
+#             print(f'{amount} successfully deposited\n'
+#                   f'existing balance:{self.balance}')
+#             return self.balance
+#         else:
+#             print("Invalid deposit amount")
+#     def withdraw(self,amount):
+#         if amount<=self.balance and amount>0:
+#             self.balance-=amount
+#             print(f'{amount} successfully withdrawn\n'
+#                   f'existing balance:{self.balance}')
+#             return self.balance
+#         else:
+#             print("Invalid withdrawn amount")
+#     def check_balance(self):
+#         print(f'{self.balance} is existing balance')
+#         return self.balance
+#     def display(self):
+#         print(f'Name: {self.name}'
+#               f'Balance: {self.balance}')
+# class User(Bank):
+#     def __init__(self,n,b=0):
+#         super().__init__(n,b)
+#     def display(self):
+#         print(f"User's name: {self.name}")
+# u1=User('Aadhya')
+# u1.display()
+# u1.check_balance()
+# u1.deposit(5000)
+# u1.deposit(0)
+# u1.withdraw(250)
+# u1.withdraw(0)
+# print('-'*50)
+# '''2. Employee Salary System
+# Create an Employee class with:
+# • emp_name
+# • salary
+# • display_details()
+# Create a Manager class that inherits Employee and adds a bonus().
+#  Display the total salary.'''
 # class Employee:
 #     def __init__(self,n,s):
 #         self.name=n
@@ -67,13 +67,13 @@ Create a Manager class that inherits Employee and adds a bonus().
 # m1.bonus(10000)
 # print('Total_salary:',m1.salary)
 # print('-'*50)
-'''Student Result System 
-Create a Student class with: 
-• Name  
-• marks 
-• display_marks() 
-Create a Result class that inherits Student and 
-calculates whether the student has passed or failed.'''
+# '''Student Result System
+# Create a Student class with:
+# • Name
+# • marks
+# • display_marks()
+# Create a Result class that inherits Student and
+# calculates whether the student has passed or failed.'''
 # class Student:
 #     def __init__(self,n,m):
 #         self.name=n
@@ -91,16 +91,16 @@ calculates whether the student has passed or failed.'''
 # s1.check()
 # s2=Student('Parul',30)
 # print('-'*50)
-'''4. Food Ordering System
-Using Multilevel Inheritance 
-Class 1: Restaurant 
-    • Create a method menu(item) that returns the price of the selected food item.  
-Class 2: FoodCourt (inherits Restaurant) Create the following methods: 
-    • display_menu() – Display the available food items. 
-     • order() – Accept the food item from the user and allow multiple orders.  
-     • billing() – Display the total bill and add a packing charge of ₹20.  
-Class 3: Customer (inherits FoodCourt) • Create an object of the Customer class.  
-• Call the order() method. '''
+# '''4. Food Ordering System
+# Using Multilevel Inheritance
+# Class 1: Restaurant
+#     • Create a method menu(item) that returns the price of the selected food item.
+# Class 2: FoodCourt (inherits Restaurant) Create the following methods:
+#     • display_menu() – Display the available food items.
+#      • order() – Accept the food item from the user and allow multiple orders.
+#      • billing() – Display the total bill and add a packing charge of ₹20.
+# Class 3: Customer (inherits FoodCourt) • Create an object of the Customer class.
+# • Call the order() method. '''
 # class Restaurant:
 #     def __init__(self,name,**kwargs):
 #         self.menu=kwargs
@@ -242,37 +242,105 @@ Class 3: Customer (inherits FoodCourt) • Create an object of the Customer clas
 #         u=Uber()
 #     else:
 #         u=Ola()
-'''10. ATM System Using Multiple Inheritance 
-Class 1: SBI 
-    • Create the methods deposit(amount) and check_balance().  
-Class 2: UnionBank 
-    • Create the methods withdraw(amount) and mini_statement().  
-Class 3: ATM (inherits SBI and UnionBank) 
-    • Create the methods menu() and transaction().  
-    • Allow the user to perform banking operations.  
-Driver Code • Create an object of the ATM class.
-  • Call the transaction() method.'''
-class SBI:
-    bank_balance=0
-    def deposit(self,amount):
-        self.bank_balance+=amount
-        print(f'{amount} amount is deposited.')
-    def check_balance(self):
-        print(f'Existing Bank Balance :{self.bank_balance}.')
-class UnionBank:
-    bank_balance=0
-    def deposit(self, amount):
-        self.bank_balance += amount
-        print(f'{amount} amount is deposited.')
-    def check_balance(self):
-        print(f'Existing Bank Balance :{self.bank_balance}.')
-class ATM(SBI,UnionBank):
-    def menu(self):
-        pass
-    def transaction(self):
-        pass
-a=SBI()
-a.deposit(500)
-a.check_balance()
-def driver_code():
-    pass
+# '''10. ATM System Using Multiple Inheritance
+# Class 1: SBI
+#     • Create the methods deposit(amount) and check_balance().
+# Class 2: UnionBank
+#     • Create the methods withdraw(amount) and mini_statement().
+# Class 3: ATM (inherits SBI and UnionBank)
+#     • Create the methods menu() and transaction().
+#     • Allow the user to perform banking operations.
+# Driver Code • Create an object of the ATM class.
+#   • Call the transaction() method.'''
+# class SBI:
+#     bank_balance=0
+#     def deposit(self,amount):
+#         self.bank_balance+=amount
+#         print(f'{amount} amount is deposited.')
+#     def check_balance(self):
+#         print(f'Existing Bank Balance :{self.bank_balance}.')
+# class UnionBank:
+#     bank_balance=0
+#     def withdrawn(self, amount):
+#         if amount<=self.bank_balance:
+#             self.bank_balance -= amount
+#             print(f'{amount} amount is deposited.')
+#         else:
+#             print('Insufficient Funds')
+#     def check_balance(self):
+#         print(f'Existing Bank Balance :{self.bank_balance}.')
+# class ATM(SBI,UnionBank):
+#     def menu(self):
+#         print(f'1:deposit\n'
+#               f'2:withdraw\n'
+#               f'3:check_balance')
+#     def transaction(self):
+#         k=int(input('Enter Ur Choice:'))
+#         if k==1:
+#             amount=int(input('Enter amount:'))
+#             self.deposit(amount)
+#         elif k==2:
+#             amount = int(input('Enter amount:'))
+#             self.withdrawn(amount)
+#         elif k==3:
+#             self.check_balance()
+#         else:
+#             print("Invalid Input")
+# def driver_code(obj):
+#     obj.transaction()
+# driver_code(ATM())
+# '''11. Paytm Application Using Multiple Inheritance
+# Write a Python program to implement a Paytm Application using multiple inheritance.
+# Class 1: MobileRecharge
+#     • Create the methods recharge_plans() and mobile_recharge().
+# Class 2: BusTicketBooking
+#     • Create the methods display_buses() and book_ticket().
+# Class 3: ElectricityBills
+#     • Create the methods bill_details() and pay_bill().
+# Class 4: Paytm (inherits MobileRecharge, BusTicketBooking, and ElectricityBills)
+#     Create the following methods:
+#         • menu() – Display the available services.
+#         • services() – Allow the user to choose and use any service
+#             (Mobile Recharge, Bus Ticket Booking, or Electricity Bill Payment).'''
+# class Mobile_Recharge:
+#     def recharge_plans(self):
+#         print(f'199:[28 days Validity, 2GB data]\n'
+#               f'249:[28 days Validity,2GB/Day]\n'
+#               f'899:[90 days Validity,2GB/Day')
+#     def mobile_recharge(self,amount):
+#         print(f'{amount}-plan Recharge Successful')
+# class Bus_Ticket_Booking:
+#     def display_buses(self):
+#         print("Satwik Travels\nSiva Travels\nPaaru Travels")
+#     def book_ticket(self,bus):
+#         print(f'Ticket is booked successfully for "{bus} " Travels ')
+# class Electricity_bills:
+#     def bill_details(self):
+#         print('bill details')
+#     def pay_bill(self):
+#         print('Bill is successfully paid')
+# class Paytm(Mobile_Recharge,Bus_Ticket_Booking,Electricity_bills):
+#     def display(self):
+#         print('------','Services','----------')
+#         print('1:Mobile_Recharge\n2:Bus_Ticket_booking\n3:Electricity_Bill')
+#     def services(self):
+#         self.display()
+#         k=int(input('Enter Ur Choice:'))
+#         if k==1:
+#             self.recharge_plans()
+#             m=int(input('Enter Type Of Plan:'))
+#             self.mobile_recharge(m)
+#         elif k==2:
+#             self.display_buses()
+#             bus=input('Enter Type of Travels:')
+#             self.book_ticket(bus)
+#         elif k==3:
+#             self.pay_bill()
+#         else:
+#             print("Invalid Input")
+# p1=Paytm()
+# p1.display()
+# p1.services()
+
+
+
