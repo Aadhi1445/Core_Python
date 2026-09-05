@@ -147,31 +147,6 @@ if a!=-1 and b!=-1:
         print('Invalid 7')
 else:
     print('Invalid')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # '''6 Write a program to validate a password based on length, uppercase, lowercase, digit, and special character rules.
 # lenght:10'''
 # l='mouni'
@@ -232,7 +207,3 @@ else:
 #         print("Invalid Password ")
 # else:
 #     print('Invalid Password')
-
-
-# a='a2'
-# print(a.isalnum())
