@@ -47,6 +47,7 @@
 # # print(ss.)
 # for i in range(0,(len(s)-len(ss))+1):
 #     w=s[i:i+(len(ss))]
+#     # print('w:',w)
 #     if w==ss:
 #         print('Found')
 #         break
@@ -55,9 +56,9 @@
 # '''18 Write a program to find the index of a given character in a string. '''
 # s='AdityaGuttula'
 # ch='G'
-# for i in s:
-#     if ch==i:
-#         print('Found')
+# for i in range(0,len(s)):
+#     if ch==s[i]:
+#         print('Found',s[i],'->',i)
 #         break
 # else:
 #     print("Not Found")
@@ -70,14 +71,16 @@
 #         c+=1
 # print(c)
 # '''20 Write a program to search for a word in a sentence and display whether it is present. '''
-# s='I am Learning Python,I Love Python'
+# s='I am Learning Python. I Love Python'
 # w='Python'
 # s=s.split()
-# # print(s)
+# print(s)
 # for i in s:
 #     if i==w:
 #         print('Found:',w)
 #         break
+# else:
+#     print('Not Found',w)
 # '''21 Write a program to extract all digits from a given string'''
 # s='aditya324nbsf68uu0'
 # for i in s:
@@ -95,12 +98,13 @@
 # print('up:',up, 'lc:',lc)
 # '''23 Write a program to separate alphabets, digits, and special characters from a string.'''
 # s='ASDsdfg345@*^%$'
-# a=d=spc=0
+# a=d=spc=''
 # for i in s:
 #     if i.lower()>='a' and i.lower()<='z':
-#         a+=1
+#         a+=i
 #     elif i>='0' and i<='9':
-#         d+=1
+#         d+=i
 #     else:
-#         spc+=1
-# print('alphabets:',a, 'Digits:',d, 'spc:',spc)
+#         spc+=i
+# print('alphabets:',a, '   Digits:',d, '   spc:',spc)
+

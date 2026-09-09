@@ -1,4 +1,4 @@
-'''Inheritance'''
+# '''Inheritance'''
 # class Animal:
 #     def __init__(self,n):
 #         self.name=n
@@ -16,7 +16,6 @@
 # a1=Animal('Golden Sparrow')
 # # a1.bark()
 # a1.Eat()
-
 # class Vehicle:
 #     def __init__(self,b,s):
 #         self.brand=b
