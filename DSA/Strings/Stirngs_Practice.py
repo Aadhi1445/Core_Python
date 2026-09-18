@@ -114,3 +114,27 @@
 SubStrings 
 32 Write a program to print all the substrings of the given string 
 33 Write a program to find the word with the maximum number of vowels. '''
+l=[3,1,8,4,2,7,2,8,3,1]
+d={}
+for i in l:
+    if i in d:
+        d[i]=d[i]+1
+    else:
+        d[i]=1
+print(d)
+print('-'*50)
+for i in d.items():
+    print(i)
+print('-'*50)
+for i,j in d.items():
+    print(i,j)
+print('-'*50)
+for i in d.items():
+    print(i[0],i[1])
+print('-'*50)
+for i in d.keys():
+    print(i)
+print('-'*50)
+for i in d.values():
+    print(i)
+

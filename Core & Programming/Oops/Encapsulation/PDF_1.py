@@ -134,8 +134,51 @@ p1=Product(100)
 # p1=Product(-100)
 # print(p1.get_final_price(71))
 print(p1.get_final_price(50))
-'''6. Create a Character class with: • private _health • methods to damage(points) and heal(points) • health cannot drop below 0 or exceed max limit • expose only current health through a read-only getter
-7. Create: • An Engine class with private state like temperature • A Car class that uses an Engine but should: o Not allow users to manipulate engine temperature o Only expose methods like start_car() or cool_engine() Demonstrate why giving direct engine access is dangerous. 
-8. Create a ShoppingCart class where: • items are stored privately • users cannot directly modify item list • only add/remove methods are allowed • provide a method to get a safe copy of the cart items (not direct reference to internal list)
- 9. Implement a class incorrectly first: • Attendance stored in a list • Exposed directly so any outside code can modify it Then redesign properly: • Make attendance private • Provide controlled methods for marking attendance only Explain the difference. 
-10. Create a class using @property and @setter for a private attribute. Then: 1. Show correct usage 2. Show how forgetting to use underscore prefix breaks encapsulation 3. Show what happens if you implement a setter without validation Focus: Python-specific encapsulation pitfalls, misuse of properties.'''
+'''6. Create a Character class with: 
+    • private _health 
+    • methods to damage(points) and heal(points) 
+    • health cannot drop below 0 or exceed max limit 
+    • expose only current health through a read-only getter'''
+class Character:
+    def __init__(self,name):
+        self.__health=100
+        self.name=name
+    def get_health(self):
+        return self.__health
+    def damage(self,other,points):
+        if points<other.__health:
+            other.__health-=points
+        else:
+            other.__health=0
+    def heal(self,points):
+        if points+self.__health<=100 and points+self.__health>=0:
+            self.__health+=points
+        else:
+            self.__health=
+
+
+
+
+
+
+'''7. Create: 
+    • An Engine class with private state like temperature 
+    • A Car class that uses an Engine but should: 
+                o Not allow users to manipulate engine temperature 
+                o Only expose methods like start_car() or cool_engine() 
+    Demonstrate why giving direct engine access is dangerous. 
+8. Create a ShoppingCart class where: 
+    • items are stored privately 
+    • users cannot directly modify item list 
+    • only add/remove methods are allowed 
+    • provide a method to get a safe copy of the cart items (not direct reference to internal list)
+ 9. Implement a class incorrectly first: 
+    • Attendance stored in a list 
+    • Exposed directly so any outside code can modify it Then redesign properly: 
+    • Make attendance private 
+    • Provide controlled methods for marking attendance only Explain the difference. 
+10. Create a class using @property and @setter for a private attribute. 
+    Then: 1. Show correct usage 
+          2. Show how forgetting to use underscore prefix breaks encapsulation 
+          3. Show what happens if you implement a setter without validation Focus: 
+                            Python-specific encapsulation pitfalls, misuse of properties.'''
