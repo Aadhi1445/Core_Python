@@ -114,27 +114,58 @@
 SubStrings 
 32 Write a program to print all the substrings of the given string 
 33 Write a program to find the word with the maximum number of vowels. '''
-l=[3,1,8,4,2,7,2,8,3,1]
-d={}
-for i in l:
-    if i in d:
-        d[i]=d[i]+1
-    else:
-        d[i]=1
-print(d)
-print('-'*50)
-for i in d.items():
-    print(i)
-print('-'*50)
-for i,j in d.items():
-    print(i,j)
-print('-'*50)
-for i in d.items():
-    print(i[0],i[1])
-print('-'*50)
-for i in d.keys():
-    print(i)
-print('-'*50)
-for i in d.values():
-    print(i)
+# l=[3,1,8,4,2,7,2,8,3,1]
+# d={}
+# for i in l:
+#     if i in d:
+#         d[i]=d[i]+1
+#     else:
+#         d[i]=1
+# print(d)
+# print('-'*50)
+# for i in d.items():
+#     print(i)
+# print('-'*50)
+# for i,j in d.items():
+#     print(i,j)
+# print('-'*50)
+# for i in d.items():
+#     print(i[0],i[1])
+# print('-'*50)
+# for i in d.keys():
+#     print(i)
+# print('-'*50)
+# for i in d.values():
+#     print(i)
 
+# s='What @ are % you # doing?..+_'
+# k=3
+# i=0
+# while True:
+#     if (i+k)<=len(s):
+#         s1=s[i:i+k]
+#         print(s1[: : -1])
+#     else:
+#         print(s[i:i+k])
+#     if i>=len(s):
+#         break
+#     i=i+k
+
+s = "lets go and see how far is sooo farr"
+k=3
+l = s.split()
+print(l)
+for i in l:
+    if len(i)>=k:
+        j = i[0:k]
+        m= i[k:]
+        print(j[::-1]+m)
+    elif len(i)<k:
+        print(i)
+
+
+
+
+# for i in range(0,len(s),k):
+#     e=s[i]
+#     print(e)
