@@ -50,6 +50,28 @@
 #             print(k,end=" ")
 #     print()
 
+# r=int(input())
+# nl=[]
+# for i in range(r):
+#     l=input().split()
+#     print('l: ',l)
+#     l1=list(map(int,l))
+#     print('l1: ',l1)
+#     nl.append(l1)
+#     print('nl: ',nl)
+
+# r=int(input('Rows: '))
+# c=int(input('columns: '))
+# nl=[]
+# for i in range(r):
+#     l=[]
+#     for j in range(c):
+#         l.append(int(input()))
+#         print(l)
+#     print('l: ',l)
+#     nl.append(l)
+#     print('nl: ',nl)
+
 
 
 
