@@ -151,17 +151,17 @@ SubStrings
 #         break
 #     i=i+k
 
-s = "lets go and see how far is sooo farr"
-k=3
-l = s.split()
-print(l)
-for i in l:
-    if len(i)>=k:
-        j = i[0:k]
-        m= i[k:]
-        print(j[::-1]+m)
-    elif len(i)<k:
-        print(i)
+# s = "lets go and see how far is sooo farr"
+# k=3
+# l = s.split()
+# print(l)
+# for i in l:
+#     if len(i)>=k:
+#         j = i[0:k]
+#         m= i[k:]
+#         print(j[::-1]+m)
+#     elif len(i)<k:
+#         print(i)
 
 
 
@@ -169,3 +169,54 @@ for i in l:
 # for i in range(0,len(s),k):
 #     e=s[i]
 #     print(e)
+'''Anagrams'''
+s='Parul'
+s1='Paarul'
+d={}
+for i in s:
+    if i in d:
+        d[i]+=1
+    else:
+        d[i]=1
+# print(d)
+d1={}
+for i in s1:
+    if i in d1:
+        d1[i]+=1
+    else:
+        d1[i]=1
+for i in s:
+    if i in d1:
+        if d1[i]!=d[i]:
+            print('False')
+            break
+    else:
+        print('False')
+        break
+else:
+    print('True')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -133,6 +133,13 @@
 # print('-'*50)
 
 
+
+# [master 3b42cff] Nested Lists
+#  3 files changed, 288 insertions(+)
+#  create mode 100644 Core & Programming/Error_Handling/practice_1.py
+#  rename DSA/Lists/{NestedLists.py => Nested_lists/Basics.py} (74%)
+#  create mode 100644 DSA/Lists/Nested_lists/NestedLists.py
+
 '''Island Perimeter
     Consider  -- 0 as Water & 1 as Land'''
 l=[
@@ -141,6 +148,9 @@ l=[
     [1,1,1,0],
     [0,0,1,0]
 ]
+
+
+
 l=[
     [0,1,0],
     [0,0,0],
@@ -158,109 +168,5 @@ for i in range(len(l)):
             if j==len(l[i])-1 or l[i][j+1]==0:
                 p+=1
 print(p)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
