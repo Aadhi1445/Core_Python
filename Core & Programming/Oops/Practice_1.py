@@ -175,34 +175,188 @@ from abc import ABC,abstractmethod
 #     obj.pay()
 #     obj.validate()
 # payment(cp)
-'''4. Create classes: 
-    • Person → base 
-        • MedicalStaff(Person) 
-        • Doctor(MedicalStaff) 
-        • Surgeon(Doctor) 
-    Requirements: 
-        • Hide sensitive data (e.g., salary, patient notes) 
-        • Abstract method perform_duty() 
-        • Each level overrides the method with more specific behavior 
-        • Use super() to chain constructor calls Demonstrate consistency across hierarchy.'''
-class Person(ABC):
-    def __init__(self,name):
-        self.__p_name=name
-    @abstractmethod
-    def person_duty(self):
-        print('Taking Medicine')
-class MedicalStaff(Person):
-    def __init__(self,name):
-        self.__s_name=name
-    def person_duty(self):
-        print('Medical_Staff duties')
-class Doctor(MedicalStaff):
-    def __init__(self,name):
-        pass
+# '''4. Create classes:
+#     • Person → base
+#         • MedicalStaff(Person)
+#         • Doctor(MedicalStaff)
+#         • Surgeon(Doctor)
+#     Requirements:
+#         • Hide sensitive data (e.g., salary, patient notes)
+#         • Abstract method perform_duty()
+#         • Each level overrides the method with more specific behavior
+#         • Use super() to chain constructor calls Demonstrate consistency across hierarchy.'''
+# class Person(ABC):
+#     def __init__(self,name):
+#         self.__name=name
+#     @abstractmethod
+#     def person_duty(self):
+#         print('Taking Medicine')
+#     def get_name(self):
+#         return self.__name
+# class MedicalStaff(Person):
+#     def __init__(self,name,department,notes,salary):
+#         self.department=department
+#         self.__patient_notes=notes
+#         self.__salary=salary
+#         super().__init__(name)
+#     def get_salary(self):
+#         return self.__salary
+#     def get_patient_notes(self):
+#         return self.__patient_notes
+#     def person_duty(self):
+#         print('Medical_Staff duties')
+# class Doctor(MedicalStaff):
+#     def __init__(self,name,department,specialization,notes,salary):
+#         self.specialization=specialization
+#         super().__init__(name,department,notes,salary)
+#     def person_duty(self):
+#         print('Doctor duties')
+# class Surgeon(Doctor):
+#     def __init__(self,name,department,specialization,surgery_type,notes,salary):
+#         self.surgery_type=surgery_type
+#         super().__init__(name,department,specialization,notes,salary)
+#     def person_duty(self):
+#         print('Surgeon duties')
+# s1=Surgeon('Aditya','ICU','Heart','Left_Artery','Age:22,Village:Someswaram,Gender:Male',50000)
+# print(s1.get_salary())
+
+# '''5. Classes:
+#         • User
+#         • Instructor(User)
+#         • Student(User)
+#         • TeachingAssistant(Student, Instructor)
+#       Requirements:
+#         • Track course assignments privately
+#         • Ensure TAs override submit_work() and grade_work()
+#         • Print MRO and explain how Python resolves conflicts '''
+# class User:
+#     def __init__(self,name,email):
+#         self.name = name
+#         self.email=email
+#         self.assignments=[]
+#     def add_assignment(self,assignment):
+#         return self.assignments.append(assignment)
+# class Instructor(User):
+#     def __init__(self,name,email):
+#         super().__init__(name,email)
+#     def grade_work(self):
+#         print('Work is Issued')
+# class Student(User):
+#     def __init__(self,name,email):
+#         super().__init__(name,email)
+#     def submit_work(self):
+#         print('Work is Submitted')
+# class TeachingAssistant(Student,Instructor):
+#     def submit_work(self):
+#         super().submit_work()
+#     def grade_work(self):
+#         super().grade_work()
+# # print(TeachingAssistant.mro())
+# ta=TeachingAssistant('Aditya','Aditya965258@gmail.com')
+# ta.add_assignment('Python')
+# ta.add_assignment('Java')
+# print(ta.assignments)
+
+'''6. Create: 
+        • Product class with private price and quantity 
+        • Warehouse class containing multiple products 
+        • Overload: 
+            o + to merge warehouses 
+            o len() to return number of unique products 
+            o in operator to check if product exists 
+        • Provide class method to track total warehouses created '''
+class Product:
+    def __init__(self,name,price,quantity):
+        self.__price = price
+        self.name=name
+        self.quantity = quantity
+class Warehouse:
+    total_warehouse=0
+    def __init__(self,name,price,quantity):
+        self.products=[]
+        Warehouse.total_warehouse+=1
+    @classmethod
+    def get_total_WH(cls):
+        return Warehouse.total_warehouse
+    def __add__(self, other):
+        return
 
 
-
-
-
-
-'''5. Classes: • User • Instructor(User) • Student(User) • TeachingAssistant(Student, Instructor) Requirements: • Track course assignments privately • Ensure TAs override submit_work() and grade_work() • Print MRO and explain how Python resolves conflicts 6. Create: • Product class with private price and quantity • Warehouse class containing multiple products • Overload: o + to merge warehouses o len() to return number of unique products o in operator to check if product exists • Provide class method to track total warehouses created 7. Design: • Abstract class MediaFile with play(), stop() • Subclasses: MP3File, MP4File, WAVFile • Private file path validation done internally • A function start_player(media) that works with ANY object that has play() (duck typing) Demonstrate mixing true polymorphism + duck typing. 8. Create: • Abstract class StatementFormatter • Subclasses: PDFFormatter, JSONFormatter, TextFormatter • Overload __call__() so that formatters can be used like functions • Overload __repr__ for debugging • Demonstrate polymorphic behavior in a reporting pipeline 9. Classes: • LightDevice • SecurityDevice • SmartCamera(LightDevice, SecurityDevice) Requirements: • Resolve method conflicts using MRO • Encapsulate internal camera logs • SmartCamera overrides both parents’ behaviors • Use super() responsibly in multiple inheritance 10. Create: • Abstract class MenuItem with get_price() • Subclasses: Pizza, Burger, Drink • Order class containing a list of items (composition) • Encapsulate the list internally • Override methods to apply custom pricing logic for each food type 11. Create: • Class Applicant with private skills list • Overload: o + to add skill o - to remove skill o == to compare applicants who have identical skill sets • Use inheritance to create ExperiencedApplicant with additional fields 12. Create: • Character → base class • Warrior, Archer, Mage subclasses Each subclass: • Overrides attack() • Encapsulates health with @property • Prevents negative HP • Uses class attributes for shared attributes (e.g., stamina_cost) Demonstrate polymorphic combat simulation. 13. Build: • Transport abstract class • Subclasses: Taxi, Bus, Train • Each implements: o calculate_fare() differently • Use static method to validate distance • Encapsulate fare state • Add class method to update government tax slab 14. Design: • Abstract class Model with train(), predict() • Implement LinearRegressionModel and DecisionTreeModel(just print or write a logic, focus on calling and concept) • A Pipeline class that: o Accepts any model o Uses composition to chain transformations o Overloads __call__() to run predictions • Encapsulates internal steps 15. Classes: • User Create a mini version of Amazon with: • Product • Seller(User) • Buyer(User) • Order • Cart Requirements (must use all OOP concepts): >Inheritance: Seller and Buyer extend User >Encapsulation: protect internal cart list, user password >Abstraction: base class User defines abstract get_role() >Polymorphism: different users behave differently in checkout >Composition: Buyer “has” a Cart >Operator overloading: • + to add product to Cart • - to remove product >Properties: validate product price >Class methods: tracking total users >Static methods: validating product IDs >__str__ for readable summaries >MRO behavior when Buyer inherits from multiple mixins (e.g., RewardsMixin) '''
+'''7. Design: 
+        • Abstract class MediaFile with play(), stop() 
+        • Subclasses: MP3File, MP4File, WAVFile 
+        • Private file path validation done internally 
+        • A function start_player(media) that works with ANY object 
+            that has play() (duck typing) 
+            Demonstrate mixing true polymorphism + duck typing.'''
+''' 8. Create: 
+        • Abstract class StatementFormatter 
+        • Subclasses: PDFFormatter, JSONFormatter, TextFormatter 
+        • Overload __call__() so that formatters can be used like functions 
+        • Overload __repr__ for debugging 
+        • Demonstrate polymorphic behavior in a reporting pipeline '''
+'''9. Classes: 
+        • LightDevice 
+        • SecurityDevice 
+        • SmartCamera(LightDevice, SecurityDevice) 
+      Requirements: 
+        • Resolve method conflicts using MRO 
+        • Encapsulate internal camera logs 
+        • SmartCamera overrides both parents’ behaviors 
+        • Use super() responsibly in multiple inheritance '''
+'''10. Create: 
+        • Abstract class MenuItem with get_price() 
+        • Subclasses: Pizza, Burger, Drink 
+        • Order class containing a list of items (composition) 
+        • Encapsulate the list internally 
+        • Override methods to apply custom pricing logic for each food type '''
+'''11. Create: 
+        • Class Applicant with private skills list 
+        • Overload: o + to add skill o - to remove skill o == to compare applicants 
+                who have identical skill sets 
+        • Use inheritance to create ExperiencedApplicant with additional fields'''
+''' 12. Create: 
+        • Character → base class 
+        • Warrior, Archer, Mage subclasses 
+     Each subclass: 
+        • Overrides attack() 
+        • Encapsulates health with @property 
+        • Prevents negative HP 
+        • Uses class attributes for shared attributes (e.g., stamina_cost)
+    Demonstrate polymorphic combat simulation. '''
+'''13. Build: 
+        • Transport abstract class 
+        • Subclasses: Taxi, Bus, Train 
+        • Each implements: o calculate_fare() differently 
+        • Use static method to validate distance 
+        • Encapsulate fare state 
+        • Add class method to update government tax slab '''
+'''14. Design: 
+        • Abstract class Model with train(), predict() 
+        • Implement LinearRegressionModel and DecisionTreeModel(just print or write a logic, 
+                focus on calling and concept) 
+        • A Pipeline class that: 
+            o Accepts any model 
+            o Uses composition to chain transformations 
+            o Overloads __call__() to run predictions 
+        • Encapsulates internal steps'''
+''' 15. Classes: 
+        • User Create a mini version of Amazon with: 
+        • Product 
+        • Seller(User) 
+        • Buyer(User) 
+        • Order 
+        • Cart Requirements (must use all OOP concepts):
+                >Inheritance: Seller and Buyer extend User 
+                >Encapsulation: protect internal cart list, user password 
+                >Abstraction: base class User defines abstract get_role() 
+                >Polymorphism: different users behave differently in checkout 
+                >Composition: Buyer “has” a Cart 
+                >Operator overloading: 
+                        • + to add product to Cart 
+                        • - to remove product 
+                >Properties: validate product price 
+                >Class methods: tracking total users 
+                >Static methods: validating product IDs 
+                >__str__ for readable summaries 
+                >MRO behavior when Buyer inherits from multiple mixins (e.g., RewardsMixin) '''

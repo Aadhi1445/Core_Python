@@ -59,7 +59,7 @@
 #         self.balance=balance
 #     def withdraw(self,amount):
 #         if amount>self.balance:
-#             raise InvalidAmount('Insufficients Funds ')
+#             raise InvalidAmount('Insufficient Funds ')
 # a1=BankAccount(5000)
 # a1.withdraw(5500)
 # '''• Create a class PasswordValidator with a method validate(password).
@@ -75,6 +75,79 @@
 # p.validate('asdfgjklo')
 '''• Create a class UserInput with a method get_integer(value). 
     Handle ValueError and TypeError using separate except blocks.'''
+# class UserInput:
+#
+#         def get_integer(self,value):
+#             try:
+#                 return int(value)
+#             except ValueError as e:
+#                 print(e)
+#             except TypeError as e:
+#                 print(e)
+#             finally:
+#                 print("adii babu")
+# u = UserInput()
+# u.get_integer("")
 
 
-'''• Create a base class Shape with a method area() that raises NotImplementedError. Create a child class Rectangle that overrides and implements the area method. • Create a class Service with a method that calls another method which raises an exception. Catch and handle the exception in the Service class. • Create a class Transaction with a method process() that uses try, except, and finally blocks to ensure a cleanup message is always printed. • Create a class LoginSystem with a method login(password) that raises an exception for an incorrect password and handles the exception outside the class.'''
+# '''• Create a base class Shape with a method area() that raises NotImplementedError.
+#     Create a child class Rectangle that overrides and implements the area method.'''
+# # class NotImplementedError(Exception):
+# #     pass
+# class Shape:
+#     def area(self):
+#         raise NotImplementedError('Method Not Implemented')
+# class Rectangle(Shape):
+#     def area(self):
+#         print('Area')
+# r1=Rectangle()
+# r1.area()
+# Shape().area()
+
+# ''' • Create a class Service with a method that calls another method which raises an exception.
+#     Catch and handle the exception in the Service class.'''
+# class Service:
+#     def method(self):
+#         self.e_method()
+#     def e_method(self):
+#         raise NotImplementedError('Exception')
+# Service().method()
+
+''' • Create a class Transaction with a method process() 
+    that uses try, except, and finally blocks to ensure a cleanup message is always printed. '''
+# class Transaction:
+#     def process(self,amount):
+#         try:
+#             return int(amount)
+#         except TypeError as e:
+#             print(e)
+#         except ValueError as e:
+#             print(e)
+#         finally:
+#             print("process done successfully")
+# t= Transaction()
+# t.process("")
+
+# '''• Create a class LoginSystem with a method login(password)
+#     that raises an exception for an incorrect password and handles the exception outside the class.'''
+class Incorrect(Exception):
+    print('Incorrect pass')
+class LoginSystem:
+    def login(self,password):
+        try:
+            if password=="aditya":
+                print("Login Successful")
+            else:
+                raise Incorrect
+        except Incorrect as e:
+            print(e)
+        finally:
+            print("..")
+l = LoginSystem()
+l.login("ad")
+
+
+
+    
+
+
