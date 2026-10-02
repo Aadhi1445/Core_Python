@@ -272,14 +272,18 @@ class Product:
         self.quantity = quantity
 class Warehouse:
     total_warehouse=0
-    def __init__(self,name,price,quantity):
-        self.products=[]
+    def __init__(self):
+        self.products={}
         Warehouse.total_warehouse+=1
     @classmethod
     def get_total_WH(cls):
         return Warehouse.total_warehouse
     def __add__(self, other):
-        return
+        return (self.products.update(other.products))
+    def __len__(self):
+        pass
+
+
 
 
 '''7. Design: 
@@ -360,3 +364,114 @@ class Warehouse:
                 >Static methods: validating product IDs 
                 >__str__ for readable summaries 
                 >MRO behavior when Buyer inherits from multiple mixins (e.g., RewardsMixin) '''
+
+
+
+#from abc import ABC, abstractmethod
+# class User(ABC):
+#     total_users = 0
+#     def __init__(self, name, age):
+#         self.name = name
+#         self.age = age
+#         self.total_users += 1
+#     @abstractmethod
+#     def get_role(self):
+#         pass
+#     @classmethod
+#     def get_total_users(cls):
+#         return cls.total_users
+#
+# class Product:
+#     def __init__(self, name, price):
+#         self.name = name
+#         self.price = price
+#     def __repr__(self):
+#         return f'Product({self.name}, {self.price})'
+#     def __str__(self):
+#         return f'Product({self.name}, {self.price})'
+#
+# class Seller(User):
+#     def __init__(self, name, age):
+#         super().__init__(name, age)
+#     def get_role(self):
+#         return "seller"
+# class Buyer(User):
+#     def __init__(self, name, age, cart):
+#         super().__init__(name, age)
+#         self.cart = cart
+#     def get_role(self):
+#         return "buyer"
+#     def  checkout(self):
+#         print(f"{self.cart.get_totalprice()} is the total price")
+# class Order:
+#     def __init__(self, product, quantity):
+#         self.product = product
+#         self.quantity = quantity
+#
+# class Reward:
+#     def get_totalprice(self, tp):
+#         if tp > 1000:
+#             return tp*0.9
+#         return tp
+#
+#
+#
+# class Cart(Reward):
+#     def __init__(self):
+#         self.__cart = []
+#     def __add__(self, other):
+#         self.__cart.append(other)
+#     def __sub__(self, other):
+#         self.__cart.remove(other)
+#     def get_cart(self):
+#         return self.__cart.copy()
+#     def get_totalprice(self):
+#         tp=0
+#         for i in self.__cart:
+#             tp+=i.price
+#         return super().get_totalprice(tp)
+#
+#     def checkout(self,role,total_price):
+#         if role == "seller":
+#             print(f"Checkout with price {total_price} received")
+#         else:
+#             print(f"Checkout with price {total_price} paid")
+#
+# def checkout(user,cart):
+#     total_price = cart.get_totalprice()
+#     cart.checkout(user.get_role(),total_price)
+#
+#
+# product=Product("laptop", 100)
+# c=Cart()
+# c+product
+# p=Product("AC", 300)
+# c+p
+# print(c.get_cart())
+# print(c.get_totalprice())
+# u2=Buyer("B", 30,c)
+# u2.checkout()
+#
+#
+# #2
+# class StatementFormatter(ABC):
+#
+#     def __format(self):
+#         print("Formatting statement")
+#     @abstractmethod
+#     def call_formatter(self):
+#         self.__format()
+#
+# class JSONFormatter(StatementFormatter):
+#     def call_formatter(self):
+#         print("Formatting JSON")
+#         super().call_formatter()
+#     def __call__(self, text):
+#         self.call_formatter()
+#         print(f"text formatted to json: {text}")
+#     def __repr__(self):
+#         return "JSONFormatter()"
+# l=[JSONFormatter()]
+# for i in l:
+#     print(i)
+#     i("hello everyone")
