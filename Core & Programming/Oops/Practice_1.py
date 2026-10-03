@@ -35,7 +35,7 @@ from abc import ABC,abstractmethod
 #             self.__balance-=amount
 #             print(f'{amount} successfully withdrawn')
 #         else:
-#             print('Insufficient funds')
+#             print('Insufficient fund    s')
 #     @abstractmethod
 #     def cal_interest(self):
 #         pass
@@ -55,8 +55,9 @@ from abc import ABC,abstractmethod
 #     def withdraw(self,amount):
 #         super().withdraw(amount)
 #     def cal_interest(self,amount):
-#         interest= amount+(0.3*amount)
-#         return (f'{interest} for {amount} in Savings_Account\n'
+#         print("hey")
+#         interest= (0.03*amount)
+#         print(f'{interest} for {amount} in Savings_Account\n'
 #                 f'Interest Rate is : "3%"')
 # class Current_Account(Account):
 #     def deposit(self,amount):
@@ -77,10 +78,16 @@ from abc import ABC,abstractmethod
 #         interest= amount+(0.15*amount)
 #         return (f'{interest} for {amount} in Fixed_Deposit_Account\n'
 #                 f'Interest Rate is : "15%"')
+# def acc(k,amount):
+#     k.deposit(amount)
+#     k.withdraw(amount)
+#     k.cal_interest(amount)
+# acc(Savings_acc(123456),200)
+
 # fd=Fixed_Deposit('1444100638',5000)
 # print(fd.get_balance())
-# # fd.deposit(3000)
-# fd.cal_interest(100)
+# fd.deposit(3000)
+# fd.cal_interest()
 
 
 
@@ -257,23 +264,32 @@ from abc import ABC,abstractmethod
 # ta.add_assignment('Java')
 # print(ta.assignments)
 
-'''6. Create: 
-        • Product class with private price and quantity 
-        • Warehouse class containing multiple products 
-        • Overload: 
-            o + to merge warehouses 
-            o len() to return number of unique products 
-            o in operator to check if product exists 
+'''6. Create:
+        • Product class with private price and quantity
+        • Warehouse class containing multiple products
+        • Overload:
+            o + to merge warehouses
+            o len() to return number of unique products
+            o in operator to check if product exists
         • Provide class method to track total warehouses created '''
 class Product:
     def __init__(self,name,price,quantity):
         self.__price = price
         self.name=name
-        self.quantity = quantity
+        self.__quantity = quantity
+    def get_price(self):
+        return self.__price
+    def get_quantity(self):
+        return self.__quantity
+    def __str__(self):
+        return (f'Name: {self.name}\n'
+                f'Price: {self.get_price()}\n'
+                f'Quantity: {self.get_quantity()}')
 class Warehouse:
     total_warehouse=0
-    def __init__(self):
-        self.products={}
+    products={}
+    def __init__(self,name,price,quantity):
+        Warehouse.products[name]=Product(name,price,quantity)
         Warehouse.total_warehouse+=1
     @classmethod
     def get_total_WH(cls):
@@ -281,7 +297,24 @@ class Warehouse:
     def __add__(self, other):
         return (self.products.update(other.products))
     def __len__(self):
-        pass
+        c=0
+        for i in self.products:
+            c+=1
+        return c
+    def __contains__(self, item):
+        return item in self.products
+
+    def __str__(self):
+        result = ""
+        for product in self.products.values():
+            result += str(product) + "\n"
+        return result
+w1=Warehouse('Laptop',55000,5)
+print(w1)
+
+
+
+
 
 
 
@@ -475,3 +508,5 @@ class Warehouse:
 # for i in l:
 #     print(i)
 #     i("hello everyone")
+
+
