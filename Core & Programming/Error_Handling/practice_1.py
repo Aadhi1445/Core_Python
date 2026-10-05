@@ -130,21 +130,6 @@
 
 # '''• Create a class LoginSystem with a method login(password)
 #     that raises an exception for an incorrect password and handles the exception outside the class.'''
-class Incorrect(Exception):
-    print('Incorrect pass')
-class LoginSystem:
-    def login(self,password):
-        try:
-            if password=="aditya":
-                print("Login Successful")
-            else:
-                raise Incorrect
-        except Incorrect as e:
-            print(e)
-        finally:
-            print("..")
-l = LoginSystem()
-l.login("ad")
 
 
 
