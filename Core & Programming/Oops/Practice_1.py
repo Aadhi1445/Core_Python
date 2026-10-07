@@ -1,7 +1,17 @@
 from abc import ABC,abstractmethod
-
+# def fun(nums):
+#     l=[]
+#     n=[]
+#     for i in nums:
+#         if i==0:
+#             l.append(i)
+#         else:
+#             n.append(i)
+#     n.extend(l)
+#     return n
+# n=fun([0,1,0,3,0,4,5])
+# print(n)
 from IPython.core.formatters import PDFFormatter
-
 # '''1. Design a banking system with:
 #     • An abstract base class Account
 #         with deposit(),
@@ -185,16 +195,16 @@ from IPython.core.formatters import PDFFormatter
 #     obj.pay()
 #     obj.validate()
 # payment(cp)
-# '''4. Create classes:
-#     • Person → base
-#         • MedicalStaff(Person)
-#         • Doctor(MedicalStaff)
-#         • Surgeon(Doctor)
-#     Requirements:
-#         • Hide sensitive data (e.g., salary, patient notes)
-#         • Abstract method perform_duty()
-#         • Each level overrides the method with more specific behavior
-#         • Use super() to chain constructor calls Demonstrate consistency across hierarchy.'''
+'''4. Create classes:
+    • Person → base
+        • MedicalStaff(Person)
+        • Doctor(MedicalStaff)
+        • Surgeon(Doctor)
+    Requirements:
+        • Hide sensitive data (e.g., salary, patient notes)
+        • Abstract method perform_duty()
+        • Each level overrides the method with more specific behavior
+        • Use super() to chain constructor calls Demonstrate consistency across hierarchy.'''
 # class Person(ABC):
 #     def __init__(self,name):
 #         self.__name=name
@@ -685,25 +695,25 @@ from IPython.core.formatters import PDFFormatter
         • Prevents negative HP 
         • Uses class attributes for shared attributes (e.g., stamina_cost)
     Demonstrate polymorphic combat simulation. '''
-class Character(ABC):
-    def __init__(self):
-        self.__HP=100
-    @abstractmethod
-    @property
-    def get_health(self):
-        return self.__HP
-    @get_health.setter
-    def get_health(self,k):
-        if k+self.__HP>=100:
-            self.__hp=100
-
-        self.__HP-=k
-
-
-    def attack(self):
-        pass
-    @abstractmethod
-    def
+# class Character(ABC):
+#     def __init__(self):
+#         self.__HP=100
+#     @abstractmethod
+#     @property
+#     def get_health(self):
+#         return self.__HP
+#     @get_health.setter
+#     def get_health(self,k):
+#         if k+self.__HP>=100:
+#             self.__hp=100
+#
+#         self.__HP-=k
+#
+#
+#     def attack(self):
+#         pass
+#     @abstractmethod
+#     def
     # @abstractmethod
 
 
@@ -715,6 +725,27 @@ class Character(ABC):
         • Use static method to validate distance 
         • Encapsulate fare state 
         • Add class method to update government tax slab '''
+class Transport(ABC):
+    @abstractmethod
+    def __cal_fare(self,k):
+        pass
+    @staticmethod
+    def valid_distance(k):
+        if k>0:
+            return True
+        else:
+            return False
+class Taxi(Transport):
+    def __cal_fare(self,k):
+        if self.valid_distance(k):
+            pass
+
+
+
+
+
+
+
 '''14. Design: 
         • Abstract class Model with train(), predict() 
         • Implement LinearRegressionModel and DecisionTreeModel(just print or write a logic, 
@@ -724,6 +755,13 @@ class Character(ABC):
             o Uses composition to chain transformations 
             o Overloads __call__() to run predictions 
         • Encapsulates internal steps'''
+class Model(ABC):
+    @abstractmethod
+    def train(self):
+        pass
+    @abstractmethod
+    def predict(self):
+        print('Model predict')
 ''' 15. Classes: 
         • User Create a mini version of Amazon with: 
         • Product 
