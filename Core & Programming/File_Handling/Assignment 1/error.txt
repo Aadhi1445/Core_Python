@@ -1,0 +1,6 @@
+U2,-50,shopping
+      --> Amount cannot be Negative
+U4,abc,food
+      --> invalid literal for int() with base 10: 'abc'
+U7,,travel
+      --> Cannot have empty or null values

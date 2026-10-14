@@ -686,82 +686,149 @@ from IPython.core.formatters import PDFFormatter
 
 
 
-''' 12. Create: 
-        • Character → base class 
-        • Warrior, Archer, Mage subclasses 
-     Each subclass: 
-        • Overrides attack() 
-        • Encapsulates health with @property 
-        • Prevents negative HP 
-        • Uses class attributes for shared attributes (e.g., stamina_cost)
-    Demonstrate polymorphic combat simulation. '''
+# ''' 12. Create:
+#         • Character → base class
+#         • Warrior, Archer, Mage subclasses
+#      Each subclass:
+#         • Overrides attack()
+#         • Encapsulates health with @property
+#         • Prevents negative HP
+#         • Uses class attributes for shared attributes (e.g., stamina_cost)
+#     Demonstrate polymorphic combat simulation. '''
 # class Character(ABC):
-#     def __init__(self):
-#         self.__HP=100
+#     def __init__(self,name):
+#         self.ch_name=name
+#         self.__health=100
 #     @abstractmethod
+#     def attack(self,other,damage):
+#         if damage>other.__health:
+#             other.__health=0
+#         else:
+#             other.__health-=damage
 #     @property
 #     def get_health(self):
-#         return self.__HP
+#         return self.__health
 #     @get_health.setter
-#     def get_health(self,k):
-#         if k+self.__HP>=100:
-#             self.__hp=100
+#     def heal(self,hel):
+#         if hel+self.__health>100:
+#             self.__health=100
+#         else:
+#             self.__health+=hel
 #
-#         self.__HP-=k
-#
-#
-#     def attack(self):
-#         pass
+# class Warrior(Character):
+#     stamina_cost=10
+#     def attack(self,other,damage):
+#         super().attack(other,damage)
+# class Archer(Character):
+#     stamina_cost=20
+#     def attack(self,other,damage):
+#         super().attack(other,damage)
+# class Mage(Character):
+#     stamina_cost=30
+#     def attack(self,other,damage):
+#         super().attack(other,damage)
+# w1=Warrior('Hulk')
+# a1=Archer('Aadhi')
+# w1.attack(a1,50)
+# print(a1.get_health)
+
+
+# '''13. Build:
+#         • Transport abstract class
+#         • Subclasses: Taxi, Bus, Train
+#         • Each implements: o calculate_fare() differently
+#         • Use static method to validate distance
+#         • Encapsulate fare state
+#         • Add class method to update government tax slab '''
+# class Transport(ABC):
+#     gov_tax_slab=0.05
 #     @abstractmethod
-#     def
-    # @abstractmethod
+#     def cal_fare(self,k):
+#         pass
+#     @staticmethod
+#     def valid_distance(k):
+#         if k>0:
+#             return True
+#         else:
+#             return False
+#     @classmethod
+#     def update_slab(cls,x):
+#         if 0<=x<=1:
+#             cls.gov_tax_slab=x
+#             return  cls.gov_tax_slab
+#         else:
+#             raise ValueError('Tax Rate should be valid')
+# class Taxi(Transport):
+#     base_price=50
+#     def cal_fare(self,k):
+#         if self.valid_distance(k):
+#             return self.base_price+(k*10)
+#         else:
+#             raise ValueError('Enter Valid Distance')
+#     def book_fare(self,k):
+#         l = self.cal_fare(k)
+#         return f'Fair is booked for {l}/-'
+# class Bus(Transport):
+#     base_price=35
+#     def cal_fare(self, k):
+#         if self.valid_distance(k):
+#             return self.base_price + (k * 15)
+#         else:
+#             raise ValueError('Enter Valid Distance')
+#     def book_fare(self,k):
+#         l = self.cal_fare(k)
+#         return f'Fair is booked for {l}/-'
+# class Train(Transport):
+#     base_price=40
+#     def cal_fare(self, k):
+#         if self.valid_distance(k):
+#             return self.base_price + (k * 20)
+#         else:
+#             raise ValueError('Enter Valid Distance')
+#     def book_fare(self,k):
+#         l=self.cal_fare(k)
+#         return f'Fair is booked for {l}/-'
+# t1=Train()
+# print(t1.book_fare(int(input('Enter Distance in km"s: '))))
 
 
+# '''14. Design:
+#         • Abstract class Model with train(), predict()
+#         • Implement LinearRegressionModel and DecisionTreeModel(just print or write a logic,
+#                 focus on calling and concept)
+#         • A Pipeline class that:
+#             o Accepts any model
+#             o Uses composition to chain transformations
+#             o Overloads __call__() to run predictions
+#         • Encapsulates internal steps'''
+# class Model(ABC):
+#     @abstractmethod
+#     def train(self):
+#         print(' Model Train ')
+#     @abstractmethod
+#     def predict(self):
+#         print('Model predict')
+# class  LinearRegressionModel(Model):
+#     def train(self):
+#         print('LinearRegressionModel -- Train')
+#     def predict(self):
+#         print('LinearRegressionModel -- Predict')
+#     def __call__(self):
+#         self.predict()
+# class DecisionTreeModel(Model):
+#     def train(self):
+#         print('DecisionTreeModel -- train')
+#     def predict(self):
+#         print('DecisionTreeModel -- Predict')
+#     def __call__(self):
+#         self.predict()
+# def fun(x):
+#     x().predict()
+#     x().train()
+#     x()()
+# fun(DecisionTreeModel)
+# fun(LinearRegressionModel)
 
-'''13. Build: 
-        • Transport abstract class 
-        • Subclasses: Taxi, Bus, Train 
-        • Each implements: o calculate_fare() differently 
-        • Use static method to validate distance 
-        • Encapsulate fare state 
-        • Add class method to update government tax slab '''
-class Transport(ABC):
-    @abstractmethod
-    def __cal_fare(self,k):
-        pass
-    @staticmethod
-    def valid_distance(k):
-        if k>0:
-            return True
-        else:
-            return False
-class Taxi(Transport):
-    def __cal_fare(self,k):
-        if self.valid_distance(k):
-            pass
-
-
-
-
-
-
-
-'''14. Design: 
-        • Abstract class Model with train(), predict() 
-        • Implement LinearRegressionModel and DecisionTreeModel(just print or write a logic, 
-                focus on calling and concept) 
-        • A Pipeline class that: 
-            o Accepts any model 
-            o Uses composition to chain transformations 
-            o Overloads __call__() to run predictions 
-        • Encapsulates internal steps'''
-class Model(ABC):
-    @abstractmethod
-    def train(self):
-        pass
-    @abstractmethod
-    def predict(self):
-        print('Model predict')
 ''' 15. Classes: 
         • User Create a mini version of Amazon with: 
         • Product 

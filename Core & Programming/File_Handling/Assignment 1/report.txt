@@ -1,0 +1,7 @@
+8 lines Processed) 
+5 clean lines
+3 error lines
+food -- 220
+travel -- 200
+shopping -- 300
+electronics -- 450

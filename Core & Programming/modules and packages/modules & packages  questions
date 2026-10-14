@@ -2,6 +2,8 @@
     The program should only import the module if it actually exists; otherwise,
         it should print "Module does not exist".'''
 
+        
+
 ''' 2. Create a Python package that contains two or more modules.
     Each module should define classes with attributes and methods.
     Then create another module outside the package, import the package modules,

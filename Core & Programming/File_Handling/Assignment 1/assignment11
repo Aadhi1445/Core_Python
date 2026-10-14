@@ -1,0 +1,192 @@
+PROJECT 1: TRANSACTION DATA PIPELINE
+1. Read transactions.txt line by line
+2. Validate each row
+3. Write valid rows to clean.txt
+4. Write invalid rows with reason to error.log
+5. Use flush() for logs
+6. Generate report.txt with:
+   - Total Records
+   - Valid Records
+   - Invalid Records
+   - Total Revenue
+   - Category-wise Revenue
+7. Use seek() or tell() somewhere in the program
+
+
+
+
+
+PROJECT 1: TRANSACTION DATA PIPELINE
+Real-Life Context
+A company receives a daily text file containing transaction records.
+Some records are invalid.
+The company wants a small software system that can:
+•	read the transaction file
+•	validate the records
+•	separate clean and invalid data
+•	generate a business report
+This project simulates a real Data Engineering + Data Analysis task.
+________________________________________
+Input File
+Create a file named transactions.txt
+Example content:
+user_id,amount,category
+U1,100,food
+U2,-50,shopping
+U3,200,travel
+U4,abc,food
+U5,300,shopping
+U6,120,food
+U7,,travel
+U8,450,electronics
+________________________________________
+Problem Statement
+Write a Python program using only file handling that processes the above transaction file and produces clean data, error logs, and a final report.
+________________________________________
+Step-by-Step Tasks
+Step 1: Read the file
+Read the transactions.txt file line by line.
+Requirements:
+•	Use with open(...)
+•	Do not use readlines()
+•	Process one line at a time
+________________________________________
+Step 2: Validate each row
+For each row, validate the following:
+•	row must contain exactly 3 fields
+•	amount must not be empty
+•	amount must be numeric
+•	amount must not be negative
+If any validation fails, the row should be treated as invalid.
+________________________________________
+Step 3: Create clean output
+Write all valid rows into a file named clean.txt
+Format:
+•	preserve the same fields
+•	write one valid record per line
+________________________________________
+Step 4: Create error log
+Write all invalid rows into a file named error.log
+Each error entry must include:
+•	the original row
+•	the reason for failure
+Examples:
+U2,-50,shopping -> Negative amount
+U4,abc,food -> Non-numeric amount
+U7,,travel -> Missing amount
+Requirements:
+•	log errors in real time
+•	use flush() after writing each error
+________________________________________
+Step 5: Generate analytics report
+Create a file named report.txt
+The report must contain:
+•	Total Records
+•	Valid Records
+•	Invalid Records
+•	Total Revenue
+•	Category-wise Revenue
+Example format:
+Total Records: 8
+Valid Records: 5
+Invalid Records: 3
+Total Revenue: 1170.0
+
+Category-wise Revenue:
+food: 220.0
+travel: 200.0
+shopping: 300.0
+electronics: 450.0
+________________________________________
+Step 6: Use at least one file positioning method
+In your program, use either:
+•	tell()
+•	seek()
+This is to demonstrate cursor awareness in file handling.
+________________________________________
+Expected Output Files
+After program execution, these files must exist:
+•	clean.txt
+•	error.log
+•	report.txt
+
+
+
+# Assessment 1
+
+# with open('transcation.txt','r') as t,\
+#     open('clean.txt','w') as c,\
+#     open('error.txt','w') as err:
+#     t.readline()
+#     total_lines = 0
+#     clean_lines = 0
+#     error_lines = 0
+#     total_amount = 0
+#     cat_amount={}
+#     for line in t:
+#         total_lines += 1
+#         u,a,cat=line.split(',')
+#
+#         try:
+#             if cat == '' or a == '' or u == '':
+#                 raise ValueError("cannot have empty or null values")
+#             a=int(a)
+#             if a<0:
+#                 raise ValueError("amount cannot be negative")
+#             c.write(f"{line}")
+#             clean_lines += 1
+#             total_amount += a
+#             cat_amount[cat] = cat_amount.get(cat, 0) + a
+#         except ValueError as e:
+#             error_lines += 1
+#             err.write(f"{line} -> {e}\n")
+#             err.flush()
+#
+#
+# with open('report.txt','w') as r:
+#     r.write(f"{total_lines} lines processed\n")
+#     r.flush()
+#     r.write(f"{clean_lines} lines cleaned\n")
+#     r.flush()
+#     r.write(f"{error_lines} lines error\n")
+#     r.flush()
+#     r.write(f"{total_amount} lines processed\n")
+#     r.flush()
+#     for cat,amount in cat_amount.items():
+#         r.write(f"{cat} -> {amount}\n")
+#         r.flush()
+# Assessment 2
+
+
+
+with open('knowledge.txt', 'r') as file,open('data.txt','w') as d:
+    c=0
+    for line in file:
+
+        if line=='':
+            continue
+        c+=1
+        if c==2:
+            text=prev_line+" "+line
+            d.write(text)
+            # print(text)
+            d.flush()
+            c=0
+        else:
+            prev_line=line
+            prev_line=prev_line.replace("\n","")
+
+def ask_question(question):
+    max_score=0
+    mrc=""
+    with open('data.txt', 'r') as file:
+        for chunk in file:
+            score=0
+            for word in question.split():
+                if word.lower() in chunk.lower():
+                    score+=1
+            if score>max_score:
+                max_score=score
+                mrc=chunk
+    print(mrc)
+ask_question(input("What is your question? "))
