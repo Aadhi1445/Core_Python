@@ -20,9 +20,9 @@ l=[Dog1,Cat1,Cow1]
 for i in l:
     i.sound()
 print('-'*50)
-'''Q2. Write a function operate(device) that calls device.start(). 
-Pass in objects of Car, Computer, and WashingMachine — all of which define a start() method, 
-but share no inheritance relationship. 
+'''Q2. Write a function operate(device) that calls device.start().
+Pass in objects of Car, Computer, and WashingMachine — all of which define a start() method,
+but share no inheritance relationship.
 Show that Python’s polymorphism works through behavior, not type. '''
 class Car:
     def start(self):
@@ -39,9 +39,9 @@ operate(Car())
 operate(Computer())
 operate(Washing_machine())
 print('-'*50)
-'''Q3. Create a Vector class that supports: 
-• + operator → add coordinates 
-• == operator → compare equality Show how operator overloading 
+'''Q3. Create a Vector class that supports:
+• + operator → add coordinates
+• == operator → compare equality Show how operator overloading
 gives natural polymorphism to user-defined classes.'''
 class Vector:
     def __init__(self,x,y):
@@ -62,8 +62,8 @@ print(v1+v2+v3)
 print(v1==v2)
 print(v4==v3)
 print('-'*50)
-'''Q4. Create a base class Transport with move() and 
-derived classes Bus and Bike that override it but also call the parent implementation using super(). 
+'''Q4. Create a base class Transport with move() and
+derived classes Bus and Bike that override it but also call the parent implementation using super().
 Show the combination of reuse + custom behavior.'''
 class Transport:
     def move(self):
@@ -81,14 +81,14 @@ bus=Bus()
 b.move()
 bus.move()
 print('-'*50)
-'''Q5. Using the abc module, create an abstract class Notification with send(). 
-Implement subclasses EmailNotification, SMSNotification, PushNotification — each with its own send() logic. 
+'''Q5. Using the abc module, create an abstract class Notification with send().
+Implement subclasses EmailNotification, SMSNotification, PushNotification — each with its own send() logic.
 Demonstrate polymorphism by looping over all and calling send().'''
 
 
-'''Q6. Design: 
-• Base class Payment with process(amount) 
-• Subclass CreditCardPayment adds process(amount, card_type) 
+'''Q6. Design:
+• Base class Payment with process(amount)
+• Subclass CreditCardPayment adds process(amount, card_type)
 Demonstrate what happens when overriding with different signatures and how Python handles it.'''
 class Payment:
     def process(self,amount):
@@ -106,7 +106,6 @@ print('-'*50)
 • Class Sorter with change(strategy) method.
 Separate strategy  classes: BS, MS, QS, each implementing a different logic method.
 Demonstrate how polymorphism can be achieved without inheritance by using'''
-
 class BS:
     def logic(self,data):
         print('Bs:',data)

@@ -1,4 +1,4 @@
-# def fun
+# # def fun
 # def electricty(rate_per_unit):
 #     def inner(units):
 #         total_bill=rate_per_unit*units

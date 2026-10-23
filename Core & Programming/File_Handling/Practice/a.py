@@ -1,15 +1,18 @@
 # '''
 # • Write a Python program using a context manager (with) to open a text file in read mode,
 #     read the entire content using read(), and print the number of characters in the file. '''
+
 # with open('data.txt','r') as file:
-#     k=file.read()
-#     print(len(k))
-#     # print(k)
-#     # k=file.readline()
-#     # print(k)
-#     # print('k:',k)
-#     # print('tell:',file.tell()) # here file name should be used
-#     # print(len(k))
+    # print(file.tell())
+    # k=file.read()
+    # print(file.tell())
+    # print(len(k))
+    # print(k)
+    # k=file.readline()
+    # print(k)
+    # print('k:',k)
+    # print('tell:',file.tell()) # here file name should be used
+    # print(len(k))
 #
 #     # k=file.readlines()
 #     # for i in k:
@@ -64,36 +67,36 @@
 #         print(i,end="")
 
 
-# '''• Create a custom context manager using a class that opens a file in write mode in the __enter__ method,
-#     writes a line to the file, closes the file in the __exit__ method, and
-#         properly prints or logs any exception information received in __exit__. '''
-# class A:
-#     def __init__(self,file,mode):
-#         self.file=file
-#         self.mode=mode
-#     def __enter__(self):
-#         print('Entered')
-#         self.k=open(self.file,self.mode)
-#         return  self.k
-#     def __exit__(self, exc_type, exc_val, exc_tb):
-#         # print(2)
-#         print('Closed')
-#         print('exc_type: ',exc_type)
-#         print('exc_val :',exc_val)
-#         print('exc_tb :',exc_tb)
-#         # return  True
-#         return self.k.close()
-# a=A('data1.txt','r')
-# try:
-#     with a as f:
-#         for i in f.readlines():
-#             print(i,end="")
-#             # print(1)
-#             # raise ValueError('Value Error')
-# except Exception as e:
-#     # print(3)
-#     print('e:',e)
-#     # print(4)
+'''• Create a custom context manager using a class that opens a file in write mode in the __enter__ method,
+    writes a line to the file, closes the file in the __exit__ method, and
+        properly prints or logs any exception information received in __exit__. '''
+class A:
+    def __init__(self,file,mode):
+        self.file=file
+        self.mode=mode
+    def __enter__(self):
+        print('Entered')
+        self.k=open(self.file,self.mode)
+        return  self.k
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # print(2)
+        print('\nClosed')
+        print('exc_type: ',exc_type)
+        print('exc_val :',exc_val)
+        print('exc_tb :',exc_tb)
+        # return  True
+        return self.k.close()
+a=A('data1.txt','r')
+try:
+    with a as f:
+        for i in f.readlines():
+            print(i,end="")
+            # print(1)
+            # raise ValueError('Value Error')
+except Exception as e:
+    # print(3)
+    print('e:',e)
+    # print(4)
 
 # '''• Create a custom context manager using @contextmanager from the contextlib module that opens a file,
 # yields the file object, and ensures the file is closed even if an exception occurs.'''
@@ -120,19 +123,23 @@
 # with manage_file("data.txt", "w") as f:
 #     # print(1)
 #     f.write("Hello Python")
-''''• Write a program using a context manager that opens a file in read mode, uses a loop to read the file in small chunks 
-    (for example, 5 characters at a time), prints the cursor position after each read using tell(), uses seek() to move to a specific position, 
-        and continues reading from there.'''
-from contextlib import  contextmanager
-# @contextmanager
-with open('data1.txt','r') as f:
-    while True:
-        chunk=f.read(5)
-        if  not chunk:
-            break
-        print(chunk)
-        print(f.tell())
-        # f.seek(6)
+# ''''• Write a program using a context manager that opens a file in read mode, uses a loop to read the file in small chunks
+#     (for example, 5 characters at a time), prints the cursor position after each read using tell(), uses seek() to move to a specific position,
+#         and continues reading from there.'''
+# from contextlib import  contextmanager
+# # @contextmanager
+# with open('data1.txt','r') as f:
+#     while True:
+#         chunk=f.read(5)
+#         if  not chunk:
+#             break
+#         print(chunk)
+#         print(f.tell())
+#         # f.seek(6)
+
+
+
+
 
 
 

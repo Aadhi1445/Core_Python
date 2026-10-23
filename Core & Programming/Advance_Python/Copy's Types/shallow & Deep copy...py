@@ -1,7 +1,7 @@
 # l=[10,20,30,40,50]
 # m=l
-# print(l)
-# print(m)
+# # print(l)
+# # print(m)
 # l[2]=60
 # print(l)
 # print(m)
