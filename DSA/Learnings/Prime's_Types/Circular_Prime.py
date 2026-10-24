@@ -1,6 +1,6 @@
 '''Write a Program to Print the Given Number is Circular Prime Or Not?
 Constraints
-Input:               First line of the input Consists of One Integer Value.
+Input:  First line of the input Consists of One Integer Value.
 Output:            Print the Given Number Circular Prime Or Not.
 Constraints:    Given Input Must be Positive Number or else Print "Invalid Input".
 Example
