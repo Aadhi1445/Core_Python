@@ -1,7 +1,8 @@
 '''
 Write a program to check whether the Given Number is Fascinating Number or not?
 
-Fascinating Number: When a number( 3 digits or more ) is multiplied by 2 and 3, and when both these products are concatenated with the original number, then it results in all digits from 1 to 9 present exactly once. There could be any no of zeros and are ignored.
+Fascinating Number: When a number( 3 digits or more ) is multiplied by 2 and 3, and when both these products are concatenated with the original number,
+then it results in all digits from 1 to 9 present exactly once. There could be any no of zeros and are ignored.
 
 
 Input :                    First line consists of one integer value
@@ -21,7 +22,8 @@ Input
 Output
 
 Fascinating Number
-Explanation: 192 * 2 = 384 and 192 * 3 = 576 after concatinating the values we get 192384576 which contain all the digits from 1-9 exactly once. So it is a Fascinating Number.
+Explanation: 192 * 2 = 384 and 192 * 3 = 576 after concatinating the values we get 192384576 which contain all the digits from 1-9 exactly once.
+    So it is a Fascinating Number.
 
 Sample 2
 Input
@@ -30,7 +32,8 @@ Input
 Output
 
 Fascinating Number
-Explanation: 2019 * 2 = 4038 and 2019 * 3 = 6057 after concatinating the values we get 201940386057 which contain all the digits from 1-9 exactly once. So it is a Fascinating Number. Here zeros are ignored.
+Explanation: 2019 * 2 = 4038 and 2019 * 3 = 6057 after concatinating the values we get 201940386057 which contain all the digits from 1-9 exactly once.
+    So it is a Fascinating Number. Here zeros are ignored.
 '''
 
 n=int(input())
