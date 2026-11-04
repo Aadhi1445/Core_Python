@@ -28,7 +28,7 @@ import threading
 # t1.start()
 # t2.start()
 # t3.start()
-
+#
 # t1.join()
 # t2.join()
 # t3.join()
@@ -82,7 +82,7 @@ import threading
 # print("Final balance:", balance)
 
 
-''' with lock'''
+# ''' with lock'''
 # import threading
 #
 # lock = threading.Lock()
@@ -90,8 +90,12 @@ import threading
 # def task(name):
 #     with lock:
 #         print(name, "entered")
+#         time.sleep(2)
 #         print(name, "is working")
-#         print(name, "exited")
+#         time.sleep(2)
+#         print(name, "ended")
+#         time.sleep(2)
+#
 #
 # t1 = threading.Thread(target=task, args=("Thread A",))
 # t2 = threading.Thread(target=task, args=("Thread B",))
@@ -101,7 +105,7 @@ import threading
 #
 # t1.join()
 # t2.join()
-
+# print('Main thread')
 
 # import threading
 #
@@ -172,24 +176,51 @@ import threading
 import threading
 import time
 
-semaphore = threading.Semaphore(2)
-# satwik=threading.lock()
-def task(name):
-    with semaphore:
-        print(name, "entered")
-        print("Running thread:", threading.current_thread().name)
-        time.sleep(6)
-        print(name, "expired")
+# semaphore = threading.Semaphore(2)
+# # satwik=threading.lock()
+# def task(name):
+#     with semaphore:
+#         print(name, "entered")
+#         # print("Running thread:", threading.current_thread().name)
+#         time.sleep(2)
+#         print(name, "expired")
+# t1=threading.Thread(target=task,args=('Thread 1: ',))
+# t2=threading.Thread(target=task,args=('Thread 2: ',))
+# t3=threading.Thread(target=task,args=('Thread 3: ',))
+# t4=threading.Thread(target=task,args=('Thread 4: ',))
+# t1.start()
+# t2.start()
+# t3.start()
+# t4.start()
+# t1.join()
+# t2.join()
+# t3.join()
+# t4.join()
+#
+# # threads = []
+# #
+# # for i in range(1, 5):
+# #     t = threading.Thread(target=task, args=(f"Thread-{i}"))
+# #     threads.append(t)
+# #     t.start()
+# #     t1=threading.thread(target,args,kwargs,name)
+# #
+# # for t in threads:
+# #     t.join()
 
-threads = []
+# print("All threads completed")
 
-for i in range(1, 5):
-    t = threading.Thread(target=task, args=(f"Thread-{i}"))
-    threads.append(t)
-    t.start()
-    t1=threading.thread(target,args,kwargs,name)
 
-for t in threads:
-    t.join()
+class A(threading.Thread):
+    def __init__(self,a,b):
+        self.a=a
+        self.b=b
+    def run(self):
+        pass
 
-print("All threads completed")
+t1=A()
+t3=A()
+t2=A()
+t1.start()
+t2.start()
+t3.start()

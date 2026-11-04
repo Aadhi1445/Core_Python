@@ -1,17 +1,17 @@
 import time
-# ''' Without Multithreading'''
+''' Without Multithreading'''
 # def fun1():
 #     for i in range(1,4):
 #         print('fun 1:',i)
-#         time.sleep(1) # here fun1 waits 1sec after printing every i value
+#         time.sleep(3) # here fun1 waits 1sec after printing every i value
 # def fun2():
 #     for i in range(1,4):
 #         print('fun 2:',i)
-#         time.sleep(2) # here fun1 waits 2sec after printing every i value
+#         time.sleep(1) # here fun1 waits 2sec after printing every i value
 # fun1()
 # fun2()
 import  threading
-''' With Multithreading'''
+# ''' With Multithreading'''
 # def fun1():
 #     for i in range(3):
 #         print('fun1: ',i)
@@ -20,7 +20,7 @@ import  threading
 # def fun2():
 #     for i in range(3):
 #         print('fun2: ',i)
-#         time.sleep(2)
+#         time.sleep(4)
 #
 # t1=threading.Thread(target=fun1)
 # t2=threading.Thread(target=fun2)
@@ -30,7 +30,7 @@ import  threading
 
 
 # JOIN -->  join joins the threads to main thread
-''' with Join '''
+# ''' with Join '''
 # def fun1():
 #     for i in range(3):
 #         print('fun1: ',i)
@@ -107,14 +107,14 @@ import  threading
 # print("All three tasks completed")
 
 
-''' Name Parameter in thread constructor'''
-#is_alive()--Checks whether a thread has started and has not yet finished.
-def task():
-    print("Hello from a thread")
-    print("Running thread:", threading.current_thread().name)
-
-t1 = threading.Thread(target=task, name="MyWorker")
-
-t1.start()
-print(t1.is_alive())
-t1.join()
+# ''' Name Parameter in thread constructor'''
+# #is_alive()--Checks whether a thread has started and has not yet finished.
+# def task():
+#     print("Hello from a thread")
+#     print("Running thread:", threading.current_thread().name)
+#
+# t1 = threading.Thread(target=task, name="MyWorker")
+#
+# t1.start()
+# print(t1.is_alive())
+# t1.join()
