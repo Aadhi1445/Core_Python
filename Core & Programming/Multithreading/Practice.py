@@ -147,7 +147,6 @@ the main thread waits until the worker thread completes execution.'''
 '''7. Write a Python program in which three worker threads wait until a synchronization signal is received, 
 the main thread sleeps for two seconds and then signals all waiting threads using an event, 
 after which each worker thread prints a message indicating that it has started execution.'''
-
 '''8. Write a Python program that creates five threads competing for a shared resource, 
 restricts access so that only two threads can enter the critical section at the same time using a semaphore,
  and prints a message whenever a thread enters and exits the critical section. 
@@ -158,33 +157,33 @@ and observe what happens to the daemon thread when the main program terminates.
  10. Write a Python program using ThreadPoolExecutor with three worker threads that submits tasks to compute the 
  square of numbers from 1 to 5 and prints each result as soon as the corresponding task completes.'''
 
-from concurrent.futures import ThreadPoolExecutor
-
-def task(n):
-    print(f"Task {n} executing")
-    time.sleep(2)
-    return n * 10
-
-with ThreadPoolExecutor(max_workers=2) as executor:
-    f1 = executor.submit(task, 1)
-    f2 = executor.submit(task, 2)
-    # f3 = executor.submit(task, 3)
-    # f4 = executor.submit(task, 4)
-    print('f1: ',f1)
-    print('f2 :',f2)
-    # print('f3 :',f3)
-    # print('f4 :',f4)
-    print(f1.done())
-    print(f2.done())
-    # print(f3.done())
-    # print(f4.done())
-    print(f1.result())
-    print(f2.result())
-    # print(f3.result())
-    # print(f4.result())
-    print(f1.done())
-    print(f2.done())
-    # print(f3.done())
-    # print(f4.done())
-
-print("Main completed")
+# from concurrent.futures import ThreadPoolExecutor
+#
+# def task(n):
+#     print(f"Task {n} executing")
+#     time.sleep(2)
+#     return n * 10
+#
+# with ThreadPoolExecutor(max_workers=2) as executor:
+#     f1 = executor.submit(task, 1)
+#     f2 = executor.submit(task, 2)
+#     # f3 = executor.submit(task, 3)
+#     # f4 = executor.submit(task, 4)
+#     print('f1: ',f1)
+#     print('f2 :',f2)
+#     # print('f3 :',f3)
+#     # print('f4 :',f4)
+#     print(f1.done())
+#     print(f2.done())
+#     # print(f3.done())
+#     # print(f4.done())
+#     print(f1.result())
+#     print(f2.result())
+#     # print(f3.result())
+#     # print(f4.result())
+#     print(f1.done())
+#     print(f2.done())
+#     # print(f3.done())
+#     # print(f4.done())
+#
+# print("Main completed")
